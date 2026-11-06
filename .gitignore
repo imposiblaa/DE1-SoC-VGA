@@ -1,4 +1,5 @@
 # Quartus build output
+db
 quartus/db/
 quartus/incremental_db/
 quartus/output_files/
@@ -16,8 +17,8 @@ quartus/output_files/
 ip/**/synth/
 ip/**/sim/
 ip/**/*_inst.*
-ip/**/*.qip
 ip/**/*.sopcinfo
 ip/**/*.cmp
 ip/**/*.bsf
+ip/**/*_PLL_sim/
 .qsys_edit/
