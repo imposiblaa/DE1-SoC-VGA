@@ -1,7 +1,7 @@
 # Quartus build output
-db/
-incremental_db/
-output_files/
+quartus/db/
+quartus/incremental_db/
+quartus/output_files/
 *.qws
 *.rpt
 *.summary
