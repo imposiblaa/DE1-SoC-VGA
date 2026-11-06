@@ -1,0 +1,23 @@
+# Quartus build output
+db/
+incremental_db/
+output_files/
+*.qws
+*.rpt
+*.summary
+*.smsg
+*.done
+*.jdi
+*.pin
+*.sof
+*.pof
+
+# Generated IP (keep .ip and .qsys)
+ip/**/synth/
+ip/**/sim/
+ip/**/*_inst.*
+ip/**/*.qip
+ip/**/*.sopcinfo
+ip/**/*.cmp
+ip/**/*.bsf
+.qsys_edit/
