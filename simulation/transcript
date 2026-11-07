@@ -99,3 +99,255 @@ do runsim.do VGA_Controller
 # ** Note: $stop    : ../hdl/VGA_Controller.sv(95)
 #    Time: 66155698154 ps  Iteration: 2  Instance: /VGA_Controller_testbench
 # Break in Module VGA_Controller_testbench at ../hdl/VGA_Controller.sv line 95
+do runsim.do VGA_Controller
+# VGA_Controller
+# ** Warning: (vlib-34) Library already exists at "work".
+# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 18:22:43 on Nov 06,2026
+# vlog -reportprogress 300 ../hdl/DE1_SoC.sv ../hdl/VGA_Controller.sv 
+# -- Compiling module DE1_SoC
+# -- Compiling module DE1_SoC_testbench
+# -- Compiling module VGA_Controller
+# -- Compiling module VGA_Controller_testbench
+# 
+# Top level modules:
+# 	DE1_SoC_testbench
+# 	VGA_Controller_testbench
+# End time: 18:22:43 on Nov 06,2026, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 18:22:43 on Nov 06,2026
+# vlog -reportprogress 300 ../ip/CLOCK74_PLL.v 
+# -- Compiling module CLOCK74_PLL
+# 
+# Top level modules:
+# 	CLOCK74_PLL
+# End time: 18:22:43 on Nov 06,2026, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 18:22:43 on Nov 06,2026
+# vlog -reportprogress 300 ./stubs/CLOCK74_PLL.v 
+# -- Compiling module CLOCK74_PLL
+# 
+# Top level modules:
+# 	CLOCK74_PLL
+# End time: 18:22:43 on Nov 06,2026, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# End time: 18:22:44 on Nov 06,2026, Elapsed time: 0:31:50
+# Errors: 0, Warnings: 2
+# vsim -voptargs=""+acc"" -t 1ps -lib work VGA_Controller_testbench 
+# Start time: 18:22:44 on Nov 06,2026
+# Loading sv_std.std
+# Loading work.VGA_Controller_testbench
+# Loading work.VGA_Controller
+# Loading work.CLOCK74_PLL
+# ** Warning: (vsim-3017) ../hdl/VGA_Controller.sv(18): [TFMPC] - Too few port connections. Expected 4, found 3.
+#    Time: 0 ps  Iteration: 0  Instance: /VGA_Controller_testbench/dut/c74_gen File: ./stubs/CLOCK74_PLL.v
+# ** Warning: (vsim-3722) ../hdl/VGA_Controller.sv(18): [TFMPC] - Missing connection for port 'locked'.
+# .main_pane.wave.interior.cs.body.pw.wf
+# .main_pane.structure.interior.cs.body.struct
+# .main_pane.objects.interior.cs.body.tree
+# ** Note: $stop    : ../hdl/VGA_Controller.sv(95)
+#    Time: 66155698154 ps  Iteration: 2  Instance: /VGA_Controller_testbench
+# Break in Module VGA_Controller_testbench at ../hdl/VGA_Controller.sv line 95
+do runsim.do VGA_Controller
+# VGA_Controller
+# ** Warning: (vlib-34) Library already exists at "work".
+# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 18:25:28 on Nov 06,2026
+# vlog -reportprogress 300 ../hdl/DE1_SoC.sv ../hdl/VGA_Controller.sv 
+# -- Compiling module DE1_SoC
+# -- Compiling module DE1_SoC_testbench
+# -- Compiling module VGA_Controller
+# -- Compiling module VGA_Controller_testbench
+# 
+# Top level modules:
+# 	DE1_SoC_testbench
+# 	VGA_Controller_testbench
+# End time: 18:25:28 on Nov 06,2026, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 18:25:28 on Nov 06,2026
+# vlog -reportprogress 300 ../ip/CLOCK74_PLL.v 
+# -- Compiling module CLOCK74_PLL
+# 
+# Top level modules:
+# 	CLOCK74_PLL
+# End time: 18:25:28 on Nov 06,2026, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 18:25:28 on Nov 06,2026
+# vlog -reportprogress 300 ./stubs/CLOCK74_PLL.v 
+# -- Compiling module CLOCK74_PLL
+# 
+# Top level modules:
+# 	CLOCK74_PLL
+# End time: 18:25:28 on Nov 06,2026, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# End time: 18:25:29 on Nov 06,2026, Elapsed time: 0:02:45
+# Errors: 0, Warnings: 2
+# vsim -voptargs=""+acc"" -t 1ps -lib work VGA_Controller_testbench 
+# Start time: 18:25:29 on Nov 06,2026
+# Loading sv_std.std
+# Loading work.VGA_Controller_testbench
+# Loading work.VGA_Controller
+# Loading work.CLOCK74_PLL
+# ** Warning: (vsim-3017) ../hdl/VGA_Controller.sv(18): [TFMPC] - Too few port connections. Expected 4, found 3.
+#    Time: 0 ps  Iteration: 0  Instance: /VGA_Controller_testbench/dut/c74_gen File: ./stubs/CLOCK74_PLL.v
+# ** Warning: (vsim-3722) ../hdl/VGA_Controller.sv(18): [TFMPC] - Missing connection for port 'locked'.
+# .main_pane.wave.interior.cs.body.pw.wf
+# .main_pane.structure.interior.cs.body.struct
+# .main_pane.objects.interior.cs.body.tree
+# ** Note: $stop    : ../hdl/VGA_Controller.sv(88)
+#    Time: 66577933422 ps  Iteration: 2  Instance: /VGA_Controller_testbench
+# Break in Module VGA_Controller_testbench at ../hdl/VGA_Controller.sv line 88
+do runsim.do VGA_Controller
+# VGA_Controller
+# ** Warning: (vlib-34) Library already exists at "work".
+# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 18:27:23 on Nov 06,2026
+# vlog -reportprogress 300 ../hdl/DE1_SoC.sv ../hdl/VGA_Controller.sv 
+# -- Compiling module DE1_SoC
+# -- Compiling module DE1_SoC_testbench
+# -- Compiling module VGA_Controller
+# -- Compiling module VGA_Controller_testbench
+# 
+# Top level modules:
+# 	DE1_SoC_testbench
+# 	VGA_Controller_testbench
+# End time: 18:27:23 on Nov 06,2026, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 18:27:23 on Nov 06,2026
+# vlog -reportprogress 300 ../ip/CLOCK74_PLL.v 
+# -- Compiling module CLOCK74_PLL
+# 
+# Top level modules:
+# 	CLOCK74_PLL
+# End time: 18:27:23 on Nov 06,2026, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 18:27:23 on Nov 06,2026
+# vlog -reportprogress 300 ./stubs/CLOCK74_PLL.v 
+# -- Compiling module CLOCK74_PLL
+# 
+# Top level modules:
+# 	CLOCK74_PLL
+# End time: 18:27:24 on Nov 06,2026, Elapsed time: 0:00:01
+# Errors: 0, Warnings: 0
+# End time: 18:27:24 on Nov 06,2026, Elapsed time: 0:01:55
+# Errors: 0, Warnings: 2
+# vsim -voptargs=""+acc"" -t 1ps -lib work VGA_Controller_testbench 
+# Start time: 18:27:24 on Nov 06,2026
+# Loading sv_std.std
+# Loading work.VGA_Controller_testbench
+# Loading work.VGA_Controller
+# Loading work.CLOCK74_PLL
+# ** Warning: (vsim-3017) ../hdl/VGA_Controller.sv(18): [TFMPC] - Too few port connections. Expected 4, found 3.
+#    Time: 0 ps  Iteration: 0  Instance: /VGA_Controller_testbench/dut/c74_gen File: ./stubs/CLOCK74_PLL.v
+# ** Warning: (vsim-3722) ../hdl/VGA_Controller.sv(18): [TFMPC] - Missing connection for port 'locked'.
+# .main_pane.wave.interior.cs.body.pw.wf
+# .main_pane.structure.interior.cs.body.struct
+# .main_pane.objects.interior.cs.body.tree
+# ** Note: $stop    : ../hdl/VGA_Controller.sv(90)
+#    Time: 66666808754 ps  Iteration: 2  Instance: /VGA_Controller_testbench
+# Break in Module VGA_Controller_testbench at ../hdl/VGA_Controller.sv line 90
+do runsim.do VGA_Controller
+# VGA_Controller
+# ** Warning: (vlib-34) Library already exists at "work".
+# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 18:29:22 on Nov 06,2026
+# vlog -reportprogress 300 ../hdl/DE1_SoC.sv ../hdl/VGA_Controller.sv 
+# -- Compiling module DE1_SoC
+# -- Compiling module DE1_SoC_testbench
+# -- Compiling module VGA_Controller
+# -- Compiling module VGA_Controller_testbench
+# 
+# Top level modules:
+# 	DE1_SoC_testbench
+# 	VGA_Controller_testbench
+# End time: 18:29:22 on Nov 06,2026, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 18:29:22 on Nov 06,2026
+# vlog -reportprogress 300 ../ip/CLOCK74_PLL.v 
+# -- Compiling module CLOCK74_PLL
+# 
+# Top level modules:
+# 	CLOCK74_PLL
+# End time: 18:29:22 on Nov 06,2026, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 18:29:22 on Nov 06,2026
+# vlog -reportprogress 300 ./stubs/CLOCK74_PLL.v 
+# -- Compiling module CLOCK74_PLL
+# 
+# Top level modules:
+# 	CLOCK74_PLL
+# End time: 18:29:22 on Nov 06,2026, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# End time: 18:29:23 on Nov 06,2026, Elapsed time: 0:01:59
+# Errors: 0, Warnings: 2
+# vsim -voptargs=""+acc"" -t 1ps -lib work VGA_Controller_testbench 
+# Start time: 18:29:23 on Nov 06,2026
+# Loading sv_std.std
+# Loading work.VGA_Controller_testbench
+# Loading work.VGA_Controller
+# Loading work.CLOCK74_PLL
+# ** Warning: (vsim-3017) ../hdl/VGA_Controller.sv(19): [TFMPC] - Too few port connections. Expected 4, found 3.
+#    Time: 0 ps  Iteration: 0  Instance: /VGA_Controller_testbench/dut/c74_gen File: ./stubs/CLOCK74_PLL.v
+# ** Warning: (vsim-3722) ../hdl/VGA_Controller.sv(19): [TFMPC] - Missing connection for port 'locked'.
+# .main_pane.wave.interior.cs.body.pw.wf
+# .main_pane.structure.interior.cs.body.struct
+# .main_pane.objects.interior.cs.body.tree
+# ** Note: $stop    : ../hdl/VGA_Controller.sv(90)
+#    Time: 66666808754 ps  Iteration: 2  Instance: /VGA_Controller_testbench
+# Break in Module VGA_Controller_testbench at ../hdl/VGA_Controller.sv line 90
+do runsim.do VGA_Controller
+# VGA_Controller
+# ** Warning: (vlib-34) Library already exists at "work".
+# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 18:38:40 on Nov 06,2026
+# vlog -reportprogress 300 ../hdl/DE1_SoC.sv ../hdl/VGA_Controller.sv 
+# -- Compiling module DE1_SoC
+# -- Compiling module DE1_SoC_testbench
+# -- Compiling module VGA_Controller
+# -- Compiling module VGA_Controller_testbench
+# 
+# Top level modules:
+# 	DE1_SoC_testbench
+# 	VGA_Controller_testbench
+# End time: 18:38:40 on Nov 06,2026, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 18:38:40 on Nov 06,2026
+# vlog -reportprogress 300 ../ip/CLOCK74_PLL.v 
+# -- Compiling module CLOCK74_PLL
+# 
+# Top level modules:
+# 	CLOCK74_PLL
+# End time: 18:38:40 on Nov 06,2026, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 18:38:41 on Nov 06,2026
+# vlog -reportprogress 300 ./stubs/CLOCK74_PLL.v 
+# -- Compiling module CLOCK74_PLL
+# 
+# Top level modules:
+# 	CLOCK74_PLL
+# End time: 18:38:41 on Nov 06,2026, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# End time: 18:38:42 on Nov 06,2026, Elapsed time: 0:09:19
+# Errors: 0, Warnings: 2
+# vsim -voptargs=""+acc"" -t 1ps -lib work VGA_Controller_testbench 
+# Start time: 18:38:42 on Nov 06,2026
+# Loading sv_std.std
+# Loading work.VGA_Controller_testbench
+# Loading work.VGA_Controller
+# Loading work.CLOCK74_PLL
+# .main_pane.wave.interior.cs.body.pw.wf
+# .main_pane.structure.interior.cs.body.struct
+# .main_pane.objects.interior.cs.body.tree
+# ** Note: $stop    : ../hdl/VGA_Controller.sv(91)
+#    Time: 66666808754 ps  Iteration: 2  Instance: /VGA_Controller_testbench
+# Break in Module VGA_Controller_testbench at ../hdl/VGA_Controller.sv line 91

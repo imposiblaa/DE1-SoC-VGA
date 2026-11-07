@@ -1,34 +1,36 @@
+`timescale 1ns / 1ps
 module VGA_Controller (clk_50, reset, VGA_R, VGA_G, VGA_B, VGA_CLK, VGA_SYNC_N, VGA_BLANK_N, VGA_VS, VGA_HS);
 
     output logic [7:0] VGA_R, VGA_G, VGA_B;
     output logic VGA_CLK, VGA_SYNC_N, VGA_BLANK_N, VGA_VS, VGA_HS;
     input logic clk_50, reset;
 
-    assign VGA_SYNC_N = 0;
+    assign VGA_SYNC_N = 1;
 
     wire clk_74;
     logic h_active;
     logic v_active;
     logic hsync;
     logic vsync;
+    logic locked;
 
     logic [$clog2(1650):0] hcount;
     logic [$clog2(750):0] vcount;
 
-    CLOCK74_PLL c74_gen(.refclk(clk_50), .rst(reset), .outclk_0(clk_74));
+    CLOCK74_PLL c74_gen(.refclk(clk_50), .rst(reset), .locked, .outclk_0(clk_74));
 
 
 
     assign {VGA_R, VGA_G, VGA_B} = {24{hcount[5]}}; // Output white every 32nd pixel
 
-    assign VGA_BLANK_N = ~(h_active & v_active);
+    assign VGA_BLANK_N = (h_active & v_active);
 
     assign VGA_HS = hsync;
     assign VGA_VS = vsync;
     assign VGA_CLK = clk_74;
 
     always @(posedge clk_74) begin
-        if (reset) begin
+        if (reset | ~locked) begin
             hcount <= 0;
             vcount <= 0;
             v_active <= 0;
@@ -37,27 +39,22 @@ module VGA_Controller (clk_50, reset, VGA_R, VGA_G, VGA_B, VGA_CLK, VGA_SYNC_N, 
             vsync <= 0;
         end else begin
             hcount <= hcount + 1;
-            case (hcount) inside
-                [0 : 1249]      : begin h_active <= 1; hsync <= 0; end
-                [1250 : 1389]   : begin h_active <= 0; hsync <= 0; end
-                [1390 : 1429]   : begin h_active <= 0; hsync <= 1; end
-                [1430 : $]      : begin h_active <= 0; hsync <= 0; end
-            endcase
 
-            case (vcount) inside
-                [0 : 719]       : begin v_active <= 1; vsync <= 0; end
-                [720 : 724]     : begin v_active <= 0; vsync <= 0; end
-                [725 : 729]     : begin v_active <= 0; vsync <= 1; end
-                [730 : $]       : begin v_active <= 0; vsync <= 0; end
-            endcase
+            h_active <= hcount < 1250;
+            hsync <= (hcount >= 1390) & (hcount < 1430);
+
+            v_active <= vcount < 720;
+            vsync <= (vcount >= 725) & (vcount < 1430);
 
             if (hcount >= 1649) begin
                 hcount <= 0;
-                vcount <= vcount + 1;
+                if (vcount >= 749)
+                    vcount <= 0;
+                else 
+                    vcount <= vcount + 1;
+
             end
 
-            if (vcount >= 749)
-                vcount <= 0;
         end
     end
 
@@ -66,7 +63,6 @@ endmodule
 
 
 module VGA_Controller_testbench ();
-    timeunit 1ns / 1ps;
     logic [7:0] VGA_R, VGA_G, VGA_B;
     logic VGA_CLK, VGA_SYNC_N, VGA_BLANK_N, VGA_VS, VGA_HS;
     logic clk_50, reset;
