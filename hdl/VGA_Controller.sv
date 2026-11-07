@@ -21,13 +21,17 @@ module VGA_Controller (clk_50, reset, VGA_R, VGA_G, VGA_B, VGA_CLK, VGA_SYNC_N, 
 
 
 
-    assign {VGA_R, VGA_G, VGA_B} = {24{hcount[5]}}; // Output white every 32nd pixel
-
     assign VGA_BLANK_N = (h_active & v_active);
 
     assign VGA_HS = hsync;
     assign VGA_VS = vsync;
     assign VGA_CLK = clk_74;
+
+    always @(posedge clk_74) begin
+        VGA_R <= (hcount * 255) / 1250;
+        VGA_G <= (vcount * 255) / 720;
+        VGA_B <= 128;
+    end
 
     always @(posedge clk_74) begin
         if (reset | ~locked) begin
