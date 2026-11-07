@@ -11,7 +11,10 @@ vlib work
 # Compile Verilog
 #     We can include all SystemVerilog files in the current folder using the
 #     following line:
-vlog "./*.sv"
+vlog "../**/*.sv"
+vlog "../**/*.v"
+vlog "./stubs/*.v"
+
 #     This uses the asterisk (*) to match all files ending in ".sv" at once.
 #     NOTE: If you have incomplete files in the current folder, they will be
 #     picked up, and will probably fail to compile. Delete any old/unused
