@@ -89,7 +89,7 @@ module VGA_Controller_testbench ();
         vscount <= 0;
     end
 
-    always @(posedge VGA_VS) begin
+    always @(negedge VGA_VS) begin
         vscount <= vscount + 1;
         if (vscount == 3)
             $stop;
