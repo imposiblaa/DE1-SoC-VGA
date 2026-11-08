@@ -351,3 +351,5 @@ do runsim.do VGA_Controller
 # ** Note: $stop    : ../hdl/VGA_Controller.sv(91)
 #    Time: 66666808754 ps  Iteration: 2  Instance: /VGA_Controller_testbench
 # Break in Module VGA_Controller_testbench at ../hdl/VGA_Controller.sv line 91
+# End time: 23:12:56 on Nov 06,2026, Elapsed time: 4:34:14
+# Errors: 0, Warnings: 0
