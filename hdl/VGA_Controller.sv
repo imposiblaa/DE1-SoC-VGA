@@ -4,62 +4,20 @@ module VGA_Controller (clk_50, reset, VGA_R, VGA_G, VGA_B, VGA_CLK, VGA_SYNC_N, 
     output logic [7:0] VGA_R, VGA_G, VGA_B;
     output logic VGA_CLK, VGA_SYNC_N, VGA_BLANK_N, VGA_VS, VGA_HS;
     input logic clk_50, reset;
-
-    assign VGA_SYNC_N = 1;
-
-    wire clk_74;
-    logic h_active;
-    logic v_active;
-    logic hsync;
-    logic vsync;
-    logic locked;
+    logic clk_74, locked;
 
     logic [$clog2(1650):0] hcount;
     logic [$clog2(750):0] vcount;
+    logic reset_timer;
 
     CLOCK74_PLL c74_gen(.refclk(clk_50), .rst(reset), .locked, .outclk_0(clk_74));
 
+    assign reset_timer = ~locked | reset;
+    VGA_Timing v_time (.clk_74, .reset(reset_timer), .hcount, .vcount, .VGA_CLK, .VGA_SYNC_N, .VGA_BLANK_N, .VGA_VS, .VGA_HS);
 
-
-    assign VGA_BLANK_N = (h_active & v_active);
-
-    assign VGA_HS = hsync;
-    assign VGA_VS = vsync;
-    assign VGA_CLK = clk_74;
 
     always @(posedge clk_74) begin
-        VGA_R <= (hcount * 255) / 1250;
-        VGA_G <= (vcount * 255) / 720;
-        VGA_B <= 128;
-    end
-
-    always @(posedge clk_74) begin
-        if (reset | ~locked) begin
-            hcount <= 0;
-            vcount <= 0;
-            v_active <= 0;
-            h_active <= 0;
-            hsync <= 0;
-            vsync <= 0;
-        end else begin
-            hcount <= hcount + 1;
-
-            h_active <= hcount < 1250;
-            hsync <= (hcount >= 1390) & (hcount < 1430);
-
-            v_active <= vcount < 720;
-            vsync <= (vcount >= 725) & (vcount < 1430);
-
-            if (hcount >= 1649) begin
-                hcount <= 0;
-                if (vcount >= 749)
-                    vcount <= 0;
-                else 
-                    vcount <= vcount + 1;
-
-            end
-
-        end
+        {VGA_R, VGA_G, VGA_B} <= {24{hcount[5] ^ vcount[5]}};
     end
 
 endmodule
