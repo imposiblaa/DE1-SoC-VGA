@@ -101,14 +101,7 @@ module soc_system_hps_0 #(
 		input  wire         hps_io_spim1_inst_MISO,   //                  .hps_io_spim1_inst_MISO
 		output wire         hps_io_spim1_inst_SS0,    //                  .hps_io_spim1_inst_SS0
 		input  wire         hps_io_uart0_inst_RX,     //                  .hps_io_uart0_inst_RX
-		output wire         hps_io_uart0_inst_TX,     //                  .hps_io_uart0_inst_TX
-		inout  wire         hps_io_gpio_inst_GPIO09,  //                  .hps_io_gpio_inst_GPIO09
-		inout  wire         hps_io_gpio_inst_GPIO35,  //                  .hps_io_gpio_inst_GPIO35
-		inout  wire         hps_io_gpio_inst_GPIO40,  //                  .hps_io_gpio_inst_GPIO40
-		inout  wire         hps_io_gpio_inst_GPIO48,  //                  .hps_io_gpio_inst_GPIO48
-		inout  wire         hps_io_gpio_inst_GPIO53,  //                  .hps_io_gpio_inst_GPIO53
-		inout  wire         hps_io_gpio_inst_GPIO54,  //                  .hps_io_gpio_inst_GPIO54
-		inout  wire         hps_io_gpio_inst_GPIO61   //                  .hps_io_gpio_inst_GPIO61
+		output wire         hps_io_uart0_inst_TX      //                  .hps_io_uart0_inst_TX
 	);
 
 	generate
@@ -193,53 +186,46 @@ module soc_system_hps_0 #(
 	);
 
 	soc_system_hps_0_hps_io hps_io (
-		.mem_a                   (mem_a),                   // memory.mem_a
-		.mem_ba                  (mem_ba),                  //       .mem_ba
-		.mem_ck                  (mem_ck),                  //       .mem_ck
-		.mem_ck_n                (mem_ck_n),                //       .mem_ck_n
-		.mem_cke                 (mem_cke),                 //       .mem_cke
-		.mem_cs_n                (mem_cs_n),                //       .mem_cs_n
-		.mem_ras_n               (mem_ras_n),               //       .mem_ras_n
-		.mem_cas_n               (mem_cas_n),               //       .mem_cas_n
-		.mem_we_n                (mem_we_n),                //       .mem_we_n
-		.mem_reset_n             (mem_reset_n),             //       .mem_reset_n
-		.mem_dq                  (mem_dq),                  //       .mem_dq
-		.mem_dqs                 (mem_dqs),                 //       .mem_dqs
-		.mem_dqs_n               (mem_dqs_n),               //       .mem_dqs_n
-		.mem_odt                 (mem_odt),                 //       .mem_odt
-		.mem_dm                  (mem_dm),                  //       .mem_dm
-		.oct_rzqin               (oct_rzqin),               //       .oct_rzqin
-		.hps_io_sdio_inst_CMD    (hps_io_sdio_inst_CMD),    // hps_io.hps_io_sdio_inst_CMD
-		.hps_io_sdio_inst_D0     (hps_io_sdio_inst_D0),     //       .hps_io_sdio_inst_D0
-		.hps_io_sdio_inst_D1     (hps_io_sdio_inst_D1),     //       .hps_io_sdio_inst_D1
-		.hps_io_sdio_inst_CLK    (hps_io_sdio_inst_CLK),    //       .hps_io_sdio_inst_CLK
-		.hps_io_sdio_inst_D2     (hps_io_sdio_inst_D2),     //       .hps_io_sdio_inst_D2
-		.hps_io_sdio_inst_D3     (hps_io_sdio_inst_D3),     //       .hps_io_sdio_inst_D3
-		.hps_io_usb1_inst_D0     (hps_io_usb1_inst_D0),     //       .hps_io_usb1_inst_D0
-		.hps_io_usb1_inst_D1     (hps_io_usb1_inst_D1),     //       .hps_io_usb1_inst_D1
-		.hps_io_usb1_inst_D2     (hps_io_usb1_inst_D2),     //       .hps_io_usb1_inst_D2
-		.hps_io_usb1_inst_D3     (hps_io_usb1_inst_D3),     //       .hps_io_usb1_inst_D3
-		.hps_io_usb1_inst_D4     (hps_io_usb1_inst_D4),     //       .hps_io_usb1_inst_D4
-		.hps_io_usb1_inst_D5     (hps_io_usb1_inst_D5),     //       .hps_io_usb1_inst_D5
-		.hps_io_usb1_inst_D6     (hps_io_usb1_inst_D6),     //       .hps_io_usb1_inst_D6
-		.hps_io_usb1_inst_D7     (hps_io_usb1_inst_D7),     //       .hps_io_usb1_inst_D7
-		.hps_io_usb1_inst_CLK    (hps_io_usb1_inst_CLK),    //       .hps_io_usb1_inst_CLK
-		.hps_io_usb1_inst_STP    (hps_io_usb1_inst_STP),    //       .hps_io_usb1_inst_STP
-		.hps_io_usb1_inst_DIR    (hps_io_usb1_inst_DIR),    //       .hps_io_usb1_inst_DIR
-		.hps_io_usb1_inst_NXT    (hps_io_usb1_inst_NXT),    //       .hps_io_usb1_inst_NXT
-		.hps_io_spim1_inst_CLK   (hps_io_spim1_inst_CLK),   //       .hps_io_spim1_inst_CLK
-		.hps_io_spim1_inst_MOSI  (hps_io_spim1_inst_MOSI),  //       .hps_io_spim1_inst_MOSI
-		.hps_io_spim1_inst_MISO  (hps_io_spim1_inst_MISO),  //       .hps_io_spim1_inst_MISO
-		.hps_io_spim1_inst_SS0   (hps_io_spim1_inst_SS0),   //       .hps_io_spim1_inst_SS0
-		.hps_io_uart0_inst_RX    (hps_io_uart0_inst_RX),    //       .hps_io_uart0_inst_RX
-		.hps_io_uart0_inst_TX    (hps_io_uart0_inst_TX),    //       .hps_io_uart0_inst_TX
-		.hps_io_gpio_inst_GPIO09 (hps_io_gpio_inst_GPIO09), //       .hps_io_gpio_inst_GPIO09
-		.hps_io_gpio_inst_GPIO35 (hps_io_gpio_inst_GPIO35), //       .hps_io_gpio_inst_GPIO35
-		.hps_io_gpio_inst_GPIO40 (hps_io_gpio_inst_GPIO40), //       .hps_io_gpio_inst_GPIO40
-		.hps_io_gpio_inst_GPIO48 (hps_io_gpio_inst_GPIO48), //       .hps_io_gpio_inst_GPIO48
-		.hps_io_gpio_inst_GPIO53 (hps_io_gpio_inst_GPIO53), //       .hps_io_gpio_inst_GPIO53
-		.hps_io_gpio_inst_GPIO54 (hps_io_gpio_inst_GPIO54), //       .hps_io_gpio_inst_GPIO54
-		.hps_io_gpio_inst_GPIO61 (hps_io_gpio_inst_GPIO61)  //       .hps_io_gpio_inst_GPIO61
+		.mem_a                  (mem_a),                  // memory.mem_a
+		.mem_ba                 (mem_ba),                 //       .mem_ba
+		.mem_ck                 (mem_ck),                 //       .mem_ck
+		.mem_ck_n               (mem_ck_n),               //       .mem_ck_n
+		.mem_cke                (mem_cke),                //       .mem_cke
+		.mem_cs_n               (mem_cs_n),               //       .mem_cs_n
+		.mem_ras_n              (mem_ras_n),              //       .mem_ras_n
+		.mem_cas_n              (mem_cas_n),              //       .mem_cas_n
+		.mem_we_n               (mem_we_n),               //       .mem_we_n
+		.mem_reset_n            (mem_reset_n),            //       .mem_reset_n
+		.mem_dq                 (mem_dq),                 //       .mem_dq
+		.mem_dqs                (mem_dqs),                //       .mem_dqs
+		.mem_dqs_n              (mem_dqs_n),              //       .mem_dqs_n
+		.mem_odt                (mem_odt),                //       .mem_odt
+		.mem_dm                 (mem_dm),                 //       .mem_dm
+		.oct_rzqin              (oct_rzqin),              //       .oct_rzqin
+		.hps_io_sdio_inst_CMD   (hps_io_sdio_inst_CMD),   // hps_io.hps_io_sdio_inst_CMD
+		.hps_io_sdio_inst_D0    (hps_io_sdio_inst_D0),    //       .hps_io_sdio_inst_D0
+		.hps_io_sdio_inst_D1    (hps_io_sdio_inst_D1),    //       .hps_io_sdio_inst_D1
+		.hps_io_sdio_inst_CLK   (hps_io_sdio_inst_CLK),   //       .hps_io_sdio_inst_CLK
+		.hps_io_sdio_inst_D2    (hps_io_sdio_inst_D2),    //       .hps_io_sdio_inst_D2
+		.hps_io_sdio_inst_D3    (hps_io_sdio_inst_D3),    //       .hps_io_sdio_inst_D3
+		.hps_io_usb1_inst_D0    (hps_io_usb1_inst_D0),    //       .hps_io_usb1_inst_D0
+		.hps_io_usb1_inst_D1    (hps_io_usb1_inst_D1),    //       .hps_io_usb1_inst_D1
+		.hps_io_usb1_inst_D2    (hps_io_usb1_inst_D2),    //       .hps_io_usb1_inst_D2
+		.hps_io_usb1_inst_D3    (hps_io_usb1_inst_D3),    //       .hps_io_usb1_inst_D3
+		.hps_io_usb1_inst_D4    (hps_io_usb1_inst_D4),    //       .hps_io_usb1_inst_D4
+		.hps_io_usb1_inst_D5    (hps_io_usb1_inst_D5),    //       .hps_io_usb1_inst_D5
+		.hps_io_usb1_inst_D6    (hps_io_usb1_inst_D6),    //       .hps_io_usb1_inst_D6
+		.hps_io_usb1_inst_D7    (hps_io_usb1_inst_D7),    //       .hps_io_usb1_inst_D7
+		.hps_io_usb1_inst_CLK   (hps_io_usb1_inst_CLK),   //       .hps_io_usb1_inst_CLK
+		.hps_io_usb1_inst_STP   (hps_io_usb1_inst_STP),   //       .hps_io_usb1_inst_STP
+		.hps_io_usb1_inst_DIR   (hps_io_usb1_inst_DIR),   //       .hps_io_usb1_inst_DIR
+		.hps_io_usb1_inst_NXT   (hps_io_usb1_inst_NXT),   //       .hps_io_usb1_inst_NXT
+		.hps_io_spim1_inst_CLK  (hps_io_spim1_inst_CLK),  //       .hps_io_spim1_inst_CLK
+		.hps_io_spim1_inst_MOSI (hps_io_spim1_inst_MOSI), //       .hps_io_spim1_inst_MOSI
+		.hps_io_spim1_inst_MISO (hps_io_spim1_inst_MISO), //       .hps_io_spim1_inst_MISO
+		.hps_io_spim1_inst_SS0  (hps_io_spim1_inst_SS0),  //       .hps_io_spim1_inst_SS0
+		.hps_io_uart0_inst_RX   (hps_io_uart0_inst_RX),   //       .hps_io_uart0_inst_RX
+		.hps_io_uart0_inst_TX   (hps_io_uart0_inst_TX)    //       .hps_io_uart0_inst_TX
 	);
 
 endmodule

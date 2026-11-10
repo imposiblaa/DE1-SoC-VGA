@@ -28,7 +28,7 @@
 // This BFM's HDL is been generated through terp file in Qsys/SOPC Builder.
 // Generation parameters:
 // output_name:                                       soc_system_hps_0_hps_io_border_hps_io
-// role:width:direction:                              hps_io_sdio_inst_CMD:1:bidir,hps_io_sdio_inst_D0:1:bidir,hps_io_sdio_inst_D1:1:bidir,hps_io_sdio_inst_CLK:1:output,hps_io_sdio_inst_D2:1:bidir,hps_io_sdio_inst_D3:1:bidir,hps_io_usb1_inst_D0:1:bidir,hps_io_usb1_inst_D1:1:bidir,hps_io_usb1_inst_D2:1:bidir,hps_io_usb1_inst_D3:1:bidir,hps_io_usb1_inst_D4:1:bidir,hps_io_usb1_inst_D5:1:bidir,hps_io_usb1_inst_D6:1:bidir,hps_io_usb1_inst_D7:1:bidir,hps_io_usb1_inst_CLK:1:input,hps_io_usb1_inst_STP:1:output,hps_io_usb1_inst_DIR:1:input,hps_io_usb1_inst_NXT:1:input,hps_io_spim1_inst_CLK:1:output,hps_io_spim1_inst_MOSI:1:output,hps_io_spim1_inst_MISO:1:input,hps_io_spim1_inst_SS0:1:output,hps_io_uart0_inst_RX:1:input,hps_io_uart0_inst_TX:1:output,hps_io_gpio_inst_GPIO09:1:bidir,hps_io_gpio_inst_GPIO35:1:bidir,hps_io_gpio_inst_GPIO40:1:bidir,hps_io_gpio_inst_GPIO48:1:bidir,hps_io_gpio_inst_GPIO53:1:bidir,hps_io_gpio_inst_GPIO54:1:bidir,hps_io_gpio_inst_GPIO61:1:bidir
+// role:width:direction:                              hps_io_sdio_inst_CMD:1:bidir,hps_io_sdio_inst_D0:1:bidir,hps_io_sdio_inst_D1:1:bidir,hps_io_sdio_inst_CLK:1:output,hps_io_sdio_inst_D2:1:bidir,hps_io_sdio_inst_D3:1:bidir,hps_io_usb1_inst_D0:1:bidir,hps_io_usb1_inst_D1:1:bidir,hps_io_usb1_inst_D2:1:bidir,hps_io_usb1_inst_D3:1:bidir,hps_io_usb1_inst_D4:1:bidir,hps_io_usb1_inst_D5:1:bidir,hps_io_usb1_inst_D6:1:bidir,hps_io_usb1_inst_D7:1:bidir,hps_io_usb1_inst_CLK:1:input,hps_io_usb1_inst_STP:1:output,hps_io_usb1_inst_DIR:1:input,hps_io_usb1_inst_NXT:1:input,hps_io_spim1_inst_CLK:1:output,hps_io_spim1_inst_MOSI:1:output,hps_io_spim1_inst_MISO:1:input,hps_io_spim1_inst_SS0:1:output,hps_io_uart0_inst_RX:1:input,hps_io_uart0_inst_TX:1:output
 // 0
 //-----------------------------------------------------------------------------
 `timescale 1 ps / 1 ps
@@ -58,14 +58,7 @@ module soc_system_hps_0_hps_io_border_hps_io
    sig_hps_io_spim1_inst_MISO,
    sig_hps_io_spim1_inst_SS0,
    sig_hps_io_uart0_inst_RX,
-   sig_hps_io_uart0_inst_TX,
-   sig_hps_io_gpio_inst_GPIO09,
-   sig_hps_io_gpio_inst_GPIO35,
-   sig_hps_io_gpio_inst_GPIO40,
-   sig_hps_io_gpio_inst_GPIO48,
-   sig_hps_io_gpio_inst_GPIO53,
-   sig_hps_io_gpio_inst_GPIO54,
-   sig_hps_io_gpio_inst_GPIO61
+   sig_hps_io_uart0_inst_TX
 );
 
    //--------------------------------------------------------------------------
@@ -96,13 +89,6 @@ module soc_system_hps_0_hps_io_border_hps_io
    output sig_hps_io_spim1_inst_SS0;
    input sig_hps_io_uart0_inst_RX;
    output sig_hps_io_uart0_inst_TX;
-   inout wire sig_hps_io_gpio_inst_GPIO09;
-   inout wire sig_hps_io_gpio_inst_GPIO35;
-   inout wire sig_hps_io_gpio_inst_GPIO40;
-   inout wire sig_hps_io_gpio_inst_GPIO48;
-   inout wire sig_hps_io_gpio_inst_GPIO53;
-   inout wire sig_hps_io_gpio_inst_GPIO54;
-   inout wire sig_hps_io_gpio_inst_GPIO61;
 
    // synthesis translate_off
    import verbosity_pkg::*;
@@ -131,13 +117,6 @@ module soc_system_hps_0_hps_io_border_hps_io
    typedef logic ROLE_hps_io_spim1_inst_SS0_t;
    typedef logic ROLE_hps_io_uart0_inst_RX_t;
    typedef logic ROLE_hps_io_uart0_inst_TX_t;
-   typedef logic ROLE_hps_io_gpio_inst_GPIO09_t;
-   typedef logic ROLE_hps_io_gpio_inst_GPIO35_t;
-   typedef logic ROLE_hps_io_gpio_inst_GPIO40_t;
-   typedef logic ROLE_hps_io_gpio_inst_GPIO48_t;
-   typedef logic ROLE_hps_io_gpio_inst_GPIO53_t;
-   typedef logic ROLE_hps_io_gpio_inst_GPIO54_t;
-   typedef logic ROLE_hps_io_gpio_inst_GPIO61_t;
 
    logic sig_hps_io_sdio_inst_CMD_oe;
    logic sig_hps_io_sdio_inst_CMD_oe_temp = 0;
@@ -239,48 +218,6 @@ module soc_system_hps_0_hps_io_border_hps_io
    logic [0 : 0] sig_hps_io_uart0_inst_RX_local;
    reg sig_hps_io_uart0_inst_TX_temp;
    reg sig_hps_io_uart0_inst_TX_out;
-   logic sig_hps_io_gpio_inst_GPIO09_oe;
-   logic sig_hps_io_gpio_inst_GPIO09_oe_temp = 0;
-   reg sig_hps_io_gpio_inst_GPIO09_temp;
-   reg sig_hps_io_gpio_inst_GPIO09_out;
-   logic [0 : 0] sig_hps_io_gpio_inst_GPIO09_in;
-   logic [0 : 0] sig_hps_io_gpio_inst_GPIO09_local;
-   logic sig_hps_io_gpio_inst_GPIO35_oe;
-   logic sig_hps_io_gpio_inst_GPIO35_oe_temp = 0;
-   reg sig_hps_io_gpio_inst_GPIO35_temp;
-   reg sig_hps_io_gpio_inst_GPIO35_out;
-   logic [0 : 0] sig_hps_io_gpio_inst_GPIO35_in;
-   logic [0 : 0] sig_hps_io_gpio_inst_GPIO35_local;
-   logic sig_hps_io_gpio_inst_GPIO40_oe;
-   logic sig_hps_io_gpio_inst_GPIO40_oe_temp = 0;
-   reg sig_hps_io_gpio_inst_GPIO40_temp;
-   reg sig_hps_io_gpio_inst_GPIO40_out;
-   logic [0 : 0] sig_hps_io_gpio_inst_GPIO40_in;
-   logic [0 : 0] sig_hps_io_gpio_inst_GPIO40_local;
-   logic sig_hps_io_gpio_inst_GPIO48_oe;
-   logic sig_hps_io_gpio_inst_GPIO48_oe_temp = 0;
-   reg sig_hps_io_gpio_inst_GPIO48_temp;
-   reg sig_hps_io_gpio_inst_GPIO48_out;
-   logic [0 : 0] sig_hps_io_gpio_inst_GPIO48_in;
-   logic [0 : 0] sig_hps_io_gpio_inst_GPIO48_local;
-   logic sig_hps_io_gpio_inst_GPIO53_oe;
-   logic sig_hps_io_gpio_inst_GPIO53_oe_temp = 0;
-   reg sig_hps_io_gpio_inst_GPIO53_temp;
-   reg sig_hps_io_gpio_inst_GPIO53_out;
-   logic [0 : 0] sig_hps_io_gpio_inst_GPIO53_in;
-   logic [0 : 0] sig_hps_io_gpio_inst_GPIO53_local;
-   logic sig_hps_io_gpio_inst_GPIO54_oe;
-   logic sig_hps_io_gpio_inst_GPIO54_oe_temp = 0;
-   reg sig_hps_io_gpio_inst_GPIO54_temp;
-   reg sig_hps_io_gpio_inst_GPIO54_out;
-   logic [0 : 0] sig_hps_io_gpio_inst_GPIO54_in;
-   logic [0 : 0] sig_hps_io_gpio_inst_GPIO54_local;
-   logic sig_hps_io_gpio_inst_GPIO61_oe;
-   logic sig_hps_io_gpio_inst_GPIO61_oe_temp = 0;
-   reg sig_hps_io_gpio_inst_GPIO61_temp;
-   reg sig_hps_io_gpio_inst_GPIO61_out;
-   logic [0 : 0] sig_hps_io_gpio_inst_GPIO61_in;
-   logic [0 : 0] sig_hps_io_gpio_inst_GPIO61_local;
 
    //--------------------------------------------------------------------------
    // =head1 Public Methods API
@@ -318,13 +255,6 @@ module soc_system_hps_0_hps_io_border_hps_io
    event signal_input_hps_io_usb1_inst_NXT_change;
    event signal_input_hps_io_spim1_inst_MISO_change;
    event signal_input_hps_io_uart0_inst_RX_change;
-   event signal_input_hps_io_gpio_inst_GPIO09_change;
-   event signal_input_hps_io_gpio_inst_GPIO35_change;
-   event signal_input_hps_io_gpio_inst_GPIO40_change;
-   event signal_input_hps_io_gpio_inst_GPIO48_change;
-   event signal_input_hps_io_gpio_inst_GPIO53_change;
-   event signal_input_hps_io_gpio_inst_GPIO54_change;
-   event signal_input_hps_io_gpio_inst_GPIO61_change;
    
    function automatic string get_version();  // public
       // Return BFM version string. For example, version 9.1 sp1 is "9.1sp1" 
@@ -937,251 +867,6 @@ module soc_system_hps_0_hps_io_border_hps_io
       sig_hps_io_uart0_inst_TX_temp = new_value;
    endfunction
 
-   // -------------------------------------------------------
-   // hps_io_gpio_inst_GPIO09
-   // -------------------------------------------------------
-   function automatic ROLE_hps_io_gpio_inst_GPIO09_t get_hps_io_gpio_inst_GPIO09();
-   
-      // Gets the hps_io_gpio_inst_GPIO09 input value.
-      $sformat(message, "%m: called get_hps_io_gpio_inst_GPIO09");
-      print(VERBOSITY_DEBUG, message);
-      return sig_hps_io_gpio_inst_GPIO09_in;
-      
-   endfunction
-
-   function automatic void set_hps_io_gpio_inst_GPIO09 (
-      ROLE_hps_io_gpio_inst_GPIO09_t new_value
-   );
-      // Drive the new value to hps_io_gpio_inst_GPIO09.
-      
-      $sformat(message, "%m: method called arg0 %0d", new_value); 
-      print(VERBOSITY_DEBUG, message);
-      
-      sig_hps_io_gpio_inst_GPIO09_temp = new_value;
-   endfunction
-   
-   function automatic void set_hps_io_gpio_inst_GPIO09_oe (
-      bit enable
-   );
-      // bidir port hps_io_gpio_inst_GPIO09 will work as output port when set to 1.
-      // bidir port hps_io_gpio_inst_GPIO09 will work as input port when set to 0.
-      
-      $sformat(message, "%m: method called arg0 %0d", enable); 
-      print(VERBOSITY_DEBUG, message);
-      
-      sig_hps_io_gpio_inst_GPIO09_oe_temp = enable;
-   endfunction
-
-   // -------------------------------------------------------
-   // hps_io_gpio_inst_GPIO35
-   // -------------------------------------------------------
-   function automatic ROLE_hps_io_gpio_inst_GPIO35_t get_hps_io_gpio_inst_GPIO35();
-   
-      // Gets the hps_io_gpio_inst_GPIO35 input value.
-      $sformat(message, "%m: called get_hps_io_gpio_inst_GPIO35");
-      print(VERBOSITY_DEBUG, message);
-      return sig_hps_io_gpio_inst_GPIO35_in;
-      
-   endfunction
-
-   function automatic void set_hps_io_gpio_inst_GPIO35 (
-      ROLE_hps_io_gpio_inst_GPIO35_t new_value
-   );
-      // Drive the new value to hps_io_gpio_inst_GPIO35.
-      
-      $sformat(message, "%m: method called arg0 %0d", new_value); 
-      print(VERBOSITY_DEBUG, message);
-      
-      sig_hps_io_gpio_inst_GPIO35_temp = new_value;
-   endfunction
-   
-   function automatic void set_hps_io_gpio_inst_GPIO35_oe (
-      bit enable
-   );
-      // bidir port hps_io_gpio_inst_GPIO35 will work as output port when set to 1.
-      // bidir port hps_io_gpio_inst_GPIO35 will work as input port when set to 0.
-      
-      $sformat(message, "%m: method called arg0 %0d", enable); 
-      print(VERBOSITY_DEBUG, message);
-      
-      sig_hps_io_gpio_inst_GPIO35_oe_temp = enable;
-   endfunction
-
-   // -------------------------------------------------------
-   // hps_io_gpio_inst_GPIO40
-   // -------------------------------------------------------
-   function automatic ROLE_hps_io_gpio_inst_GPIO40_t get_hps_io_gpio_inst_GPIO40();
-   
-      // Gets the hps_io_gpio_inst_GPIO40 input value.
-      $sformat(message, "%m: called get_hps_io_gpio_inst_GPIO40");
-      print(VERBOSITY_DEBUG, message);
-      return sig_hps_io_gpio_inst_GPIO40_in;
-      
-   endfunction
-
-   function automatic void set_hps_io_gpio_inst_GPIO40 (
-      ROLE_hps_io_gpio_inst_GPIO40_t new_value
-   );
-      // Drive the new value to hps_io_gpio_inst_GPIO40.
-      
-      $sformat(message, "%m: method called arg0 %0d", new_value); 
-      print(VERBOSITY_DEBUG, message);
-      
-      sig_hps_io_gpio_inst_GPIO40_temp = new_value;
-   endfunction
-   
-   function automatic void set_hps_io_gpio_inst_GPIO40_oe (
-      bit enable
-   );
-      // bidir port hps_io_gpio_inst_GPIO40 will work as output port when set to 1.
-      // bidir port hps_io_gpio_inst_GPIO40 will work as input port when set to 0.
-      
-      $sformat(message, "%m: method called arg0 %0d", enable); 
-      print(VERBOSITY_DEBUG, message);
-      
-      sig_hps_io_gpio_inst_GPIO40_oe_temp = enable;
-   endfunction
-
-   // -------------------------------------------------------
-   // hps_io_gpio_inst_GPIO48
-   // -------------------------------------------------------
-   function automatic ROLE_hps_io_gpio_inst_GPIO48_t get_hps_io_gpio_inst_GPIO48();
-   
-      // Gets the hps_io_gpio_inst_GPIO48 input value.
-      $sformat(message, "%m: called get_hps_io_gpio_inst_GPIO48");
-      print(VERBOSITY_DEBUG, message);
-      return sig_hps_io_gpio_inst_GPIO48_in;
-      
-   endfunction
-
-   function automatic void set_hps_io_gpio_inst_GPIO48 (
-      ROLE_hps_io_gpio_inst_GPIO48_t new_value
-   );
-      // Drive the new value to hps_io_gpio_inst_GPIO48.
-      
-      $sformat(message, "%m: method called arg0 %0d", new_value); 
-      print(VERBOSITY_DEBUG, message);
-      
-      sig_hps_io_gpio_inst_GPIO48_temp = new_value;
-   endfunction
-   
-   function automatic void set_hps_io_gpio_inst_GPIO48_oe (
-      bit enable
-   );
-      // bidir port hps_io_gpio_inst_GPIO48 will work as output port when set to 1.
-      // bidir port hps_io_gpio_inst_GPIO48 will work as input port when set to 0.
-      
-      $sformat(message, "%m: method called arg0 %0d", enable); 
-      print(VERBOSITY_DEBUG, message);
-      
-      sig_hps_io_gpio_inst_GPIO48_oe_temp = enable;
-   endfunction
-
-   // -------------------------------------------------------
-   // hps_io_gpio_inst_GPIO53
-   // -------------------------------------------------------
-   function automatic ROLE_hps_io_gpio_inst_GPIO53_t get_hps_io_gpio_inst_GPIO53();
-   
-      // Gets the hps_io_gpio_inst_GPIO53 input value.
-      $sformat(message, "%m: called get_hps_io_gpio_inst_GPIO53");
-      print(VERBOSITY_DEBUG, message);
-      return sig_hps_io_gpio_inst_GPIO53_in;
-      
-   endfunction
-
-   function automatic void set_hps_io_gpio_inst_GPIO53 (
-      ROLE_hps_io_gpio_inst_GPIO53_t new_value
-   );
-      // Drive the new value to hps_io_gpio_inst_GPIO53.
-      
-      $sformat(message, "%m: method called arg0 %0d", new_value); 
-      print(VERBOSITY_DEBUG, message);
-      
-      sig_hps_io_gpio_inst_GPIO53_temp = new_value;
-   endfunction
-   
-   function automatic void set_hps_io_gpio_inst_GPIO53_oe (
-      bit enable
-   );
-      // bidir port hps_io_gpio_inst_GPIO53 will work as output port when set to 1.
-      // bidir port hps_io_gpio_inst_GPIO53 will work as input port when set to 0.
-      
-      $sformat(message, "%m: method called arg0 %0d", enable); 
-      print(VERBOSITY_DEBUG, message);
-      
-      sig_hps_io_gpio_inst_GPIO53_oe_temp = enable;
-   endfunction
-
-   // -------------------------------------------------------
-   // hps_io_gpio_inst_GPIO54
-   // -------------------------------------------------------
-   function automatic ROLE_hps_io_gpio_inst_GPIO54_t get_hps_io_gpio_inst_GPIO54();
-   
-      // Gets the hps_io_gpio_inst_GPIO54 input value.
-      $sformat(message, "%m: called get_hps_io_gpio_inst_GPIO54");
-      print(VERBOSITY_DEBUG, message);
-      return sig_hps_io_gpio_inst_GPIO54_in;
-      
-   endfunction
-
-   function automatic void set_hps_io_gpio_inst_GPIO54 (
-      ROLE_hps_io_gpio_inst_GPIO54_t new_value
-   );
-      // Drive the new value to hps_io_gpio_inst_GPIO54.
-      
-      $sformat(message, "%m: method called arg0 %0d", new_value); 
-      print(VERBOSITY_DEBUG, message);
-      
-      sig_hps_io_gpio_inst_GPIO54_temp = new_value;
-   endfunction
-   
-   function automatic void set_hps_io_gpio_inst_GPIO54_oe (
-      bit enable
-   );
-      // bidir port hps_io_gpio_inst_GPIO54 will work as output port when set to 1.
-      // bidir port hps_io_gpio_inst_GPIO54 will work as input port when set to 0.
-      
-      $sformat(message, "%m: method called arg0 %0d", enable); 
-      print(VERBOSITY_DEBUG, message);
-      
-      sig_hps_io_gpio_inst_GPIO54_oe_temp = enable;
-   endfunction
-
-   // -------------------------------------------------------
-   // hps_io_gpio_inst_GPIO61
-   // -------------------------------------------------------
-   function automatic ROLE_hps_io_gpio_inst_GPIO61_t get_hps_io_gpio_inst_GPIO61();
-   
-      // Gets the hps_io_gpio_inst_GPIO61 input value.
-      $sformat(message, "%m: called get_hps_io_gpio_inst_GPIO61");
-      print(VERBOSITY_DEBUG, message);
-      return sig_hps_io_gpio_inst_GPIO61_in;
-      
-   endfunction
-
-   function automatic void set_hps_io_gpio_inst_GPIO61 (
-      ROLE_hps_io_gpio_inst_GPIO61_t new_value
-   );
-      // Drive the new value to hps_io_gpio_inst_GPIO61.
-      
-      $sformat(message, "%m: method called arg0 %0d", new_value); 
-      print(VERBOSITY_DEBUG, message);
-      
-      sig_hps_io_gpio_inst_GPIO61_temp = new_value;
-   endfunction
-   
-   function automatic void set_hps_io_gpio_inst_GPIO61_oe (
-      bit enable
-   );
-      // bidir port hps_io_gpio_inst_GPIO61 will work as output port when set to 1.
-      // bidir port hps_io_gpio_inst_GPIO61 will work as input port when set to 0.
-      
-      $sformat(message, "%m: method called arg0 %0d", enable); 
-      print(VERBOSITY_DEBUG, message);
-      
-      sig_hps_io_gpio_inst_GPIO61_oe_temp = enable;
-   endfunction
-
    assign sig_hps_io_sdio_inst_CMD_oe = sig_hps_io_sdio_inst_CMD_oe_temp;
    assign sig_hps_io_sdio_inst_CMD = (sig_hps_io_sdio_inst_CMD_oe == 1)? sig_hps_io_sdio_inst_CMD_temp:'z;
    assign sig_hps_io_sdio_inst_CMD_in = (sig_hps_io_sdio_inst_CMD_oe == 0)? sig_hps_io_sdio_inst_CMD:'z;
@@ -1232,27 +917,6 @@ module soc_system_hps_0_hps_io_border_hps_io
    assign sig_hps_io_spim1_inst_SS0 = sig_hps_io_spim1_inst_SS0_temp;
    assign sig_hps_io_uart0_inst_RX_in = sig_hps_io_uart0_inst_RX;
    assign sig_hps_io_uart0_inst_TX = sig_hps_io_uart0_inst_TX_temp;
-   assign sig_hps_io_gpio_inst_GPIO09_oe = sig_hps_io_gpio_inst_GPIO09_oe_temp;
-   assign sig_hps_io_gpio_inst_GPIO09 = (sig_hps_io_gpio_inst_GPIO09_oe == 1)? sig_hps_io_gpio_inst_GPIO09_temp:'z;
-   assign sig_hps_io_gpio_inst_GPIO09_in = (sig_hps_io_gpio_inst_GPIO09_oe == 0)? sig_hps_io_gpio_inst_GPIO09:'z;
-   assign sig_hps_io_gpio_inst_GPIO35_oe = sig_hps_io_gpio_inst_GPIO35_oe_temp;
-   assign sig_hps_io_gpio_inst_GPIO35 = (sig_hps_io_gpio_inst_GPIO35_oe == 1)? sig_hps_io_gpio_inst_GPIO35_temp:'z;
-   assign sig_hps_io_gpio_inst_GPIO35_in = (sig_hps_io_gpio_inst_GPIO35_oe == 0)? sig_hps_io_gpio_inst_GPIO35:'z;
-   assign sig_hps_io_gpio_inst_GPIO40_oe = sig_hps_io_gpio_inst_GPIO40_oe_temp;
-   assign sig_hps_io_gpio_inst_GPIO40 = (sig_hps_io_gpio_inst_GPIO40_oe == 1)? sig_hps_io_gpio_inst_GPIO40_temp:'z;
-   assign sig_hps_io_gpio_inst_GPIO40_in = (sig_hps_io_gpio_inst_GPIO40_oe == 0)? sig_hps_io_gpio_inst_GPIO40:'z;
-   assign sig_hps_io_gpio_inst_GPIO48_oe = sig_hps_io_gpio_inst_GPIO48_oe_temp;
-   assign sig_hps_io_gpio_inst_GPIO48 = (sig_hps_io_gpio_inst_GPIO48_oe == 1)? sig_hps_io_gpio_inst_GPIO48_temp:'z;
-   assign sig_hps_io_gpio_inst_GPIO48_in = (sig_hps_io_gpio_inst_GPIO48_oe == 0)? sig_hps_io_gpio_inst_GPIO48:'z;
-   assign sig_hps_io_gpio_inst_GPIO53_oe = sig_hps_io_gpio_inst_GPIO53_oe_temp;
-   assign sig_hps_io_gpio_inst_GPIO53 = (sig_hps_io_gpio_inst_GPIO53_oe == 1)? sig_hps_io_gpio_inst_GPIO53_temp:'z;
-   assign sig_hps_io_gpio_inst_GPIO53_in = (sig_hps_io_gpio_inst_GPIO53_oe == 0)? sig_hps_io_gpio_inst_GPIO53:'z;
-   assign sig_hps_io_gpio_inst_GPIO54_oe = sig_hps_io_gpio_inst_GPIO54_oe_temp;
-   assign sig_hps_io_gpio_inst_GPIO54 = (sig_hps_io_gpio_inst_GPIO54_oe == 1)? sig_hps_io_gpio_inst_GPIO54_temp:'z;
-   assign sig_hps_io_gpio_inst_GPIO54_in = (sig_hps_io_gpio_inst_GPIO54_oe == 0)? sig_hps_io_gpio_inst_GPIO54:'z;
-   assign sig_hps_io_gpio_inst_GPIO61_oe = sig_hps_io_gpio_inst_GPIO61_oe_temp;
-   assign sig_hps_io_gpio_inst_GPIO61 = (sig_hps_io_gpio_inst_GPIO61_oe == 1)? sig_hps_io_gpio_inst_GPIO61_temp:'z;
-   assign sig_hps_io_gpio_inst_GPIO61_in = (sig_hps_io_gpio_inst_GPIO61_oe == 0)? sig_hps_io_gpio_inst_GPIO61:'z;
 
 
    always @(sig_hps_io_sdio_inst_CMD_in) begin
@@ -1387,62 +1051,6 @@ module soc_system_hps_0_hps_io_border_hps_io
       if (sig_hps_io_uart0_inst_RX_local != sig_hps_io_uart0_inst_RX_in)
          -> signal_input_hps_io_uart0_inst_RX_change;
       sig_hps_io_uart0_inst_RX_local = sig_hps_io_uart0_inst_RX_in;
-   end
-   
-   always @(sig_hps_io_gpio_inst_GPIO09_in) begin
-      if (sig_hps_io_gpio_inst_GPIO09_oe == 0) begin
-         if (sig_hps_io_gpio_inst_GPIO09_local != sig_hps_io_gpio_inst_GPIO09_in)
-            -> signal_input_hps_io_gpio_inst_GPIO09_change;
-         sig_hps_io_gpio_inst_GPIO09_local = sig_hps_io_gpio_inst_GPIO09_in;
-      end
-   end
-   
-   always @(sig_hps_io_gpio_inst_GPIO35_in) begin
-      if (sig_hps_io_gpio_inst_GPIO35_oe == 0) begin
-         if (sig_hps_io_gpio_inst_GPIO35_local != sig_hps_io_gpio_inst_GPIO35_in)
-            -> signal_input_hps_io_gpio_inst_GPIO35_change;
-         sig_hps_io_gpio_inst_GPIO35_local = sig_hps_io_gpio_inst_GPIO35_in;
-      end
-   end
-   
-   always @(sig_hps_io_gpio_inst_GPIO40_in) begin
-      if (sig_hps_io_gpio_inst_GPIO40_oe == 0) begin
-         if (sig_hps_io_gpio_inst_GPIO40_local != sig_hps_io_gpio_inst_GPIO40_in)
-            -> signal_input_hps_io_gpio_inst_GPIO40_change;
-         sig_hps_io_gpio_inst_GPIO40_local = sig_hps_io_gpio_inst_GPIO40_in;
-      end
-   end
-   
-   always @(sig_hps_io_gpio_inst_GPIO48_in) begin
-      if (sig_hps_io_gpio_inst_GPIO48_oe == 0) begin
-         if (sig_hps_io_gpio_inst_GPIO48_local != sig_hps_io_gpio_inst_GPIO48_in)
-            -> signal_input_hps_io_gpio_inst_GPIO48_change;
-         sig_hps_io_gpio_inst_GPIO48_local = sig_hps_io_gpio_inst_GPIO48_in;
-      end
-   end
-   
-   always @(sig_hps_io_gpio_inst_GPIO53_in) begin
-      if (sig_hps_io_gpio_inst_GPIO53_oe == 0) begin
-         if (sig_hps_io_gpio_inst_GPIO53_local != sig_hps_io_gpio_inst_GPIO53_in)
-            -> signal_input_hps_io_gpio_inst_GPIO53_change;
-         sig_hps_io_gpio_inst_GPIO53_local = sig_hps_io_gpio_inst_GPIO53_in;
-      end
-   end
-   
-   always @(sig_hps_io_gpio_inst_GPIO54_in) begin
-      if (sig_hps_io_gpio_inst_GPIO54_oe == 0) begin
-         if (sig_hps_io_gpio_inst_GPIO54_local != sig_hps_io_gpio_inst_GPIO54_in)
-            -> signal_input_hps_io_gpio_inst_GPIO54_change;
-         sig_hps_io_gpio_inst_GPIO54_local = sig_hps_io_gpio_inst_GPIO54_in;
-      end
-   end
-   
-   always @(sig_hps_io_gpio_inst_GPIO61_in) begin
-      if (sig_hps_io_gpio_inst_GPIO61_oe == 0) begin
-         if (sig_hps_io_gpio_inst_GPIO61_local != sig_hps_io_gpio_inst_GPIO61_in)
-            -> signal_input_hps_io_gpio_inst_GPIO61_change;
-         sig_hps_io_gpio_inst_GPIO61_local = sig_hps_io_gpio_inst_GPIO61_in;
-      end
    end
    
 

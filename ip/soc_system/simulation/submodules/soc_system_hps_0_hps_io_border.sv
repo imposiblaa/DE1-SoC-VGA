@@ -57,14 +57,7 @@ module soc_system_hps_0_hps_io_border
    input  wire [  0:  0] hps_io_spim1_inst_MISO,
    output wire [  0:  0] hps_io_spim1_inst_SS0,
    input  wire [  0:  0] hps_io_uart0_inst_RX,
-   output wire [  0:  0] hps_io_uart0_inst_TX,
-   inout  wire [  0:  0] hps_io_gpio_inst_GPIO09,
-   inout  wire [  0:  0] hps_io_gpio_inst_GPIO35,
-   inout  wire [  0:  0] hps_io_gpio_inst_GPIO40,
-   inout  wire [  0:  0] hps_io_gpio_inst_GPIO48,
-   inout  wire [  0:  0] hps_io_gpio_inst_GPIO53,
-   inout  wire [  0:  0] hps_io_gpio_inst_GPIO54,
-   inout  wire [  0:  0] hps_io_gpio_inst_GPIO61
+   output wire [  0:  0] hps_io_uart0_inst_TX
 );
 
 
@@ -72,30 +65,23 @@ module soc_system_hps_0_hps_io_border
 
    soc_system_hps_0_hps_io_border_hps_io hps_io_inst (
       .sig_hps_io_spim1_inst_MISO(hps_io_spim1_inst_MISO),
-      .sig_hps_io_gpio_inst_GPIO40(hps_io_gpio_inst_GPIO40),
       .sig_hps_io_uart0_inst_RX(hps_io_uart0_inst_RX),
       .sig_hps_io_sdio_inst_CLK(hps_io_sdio_inst_CLK),
-      .sig_hps_io_gpio_inst_GPIO54(hps_io_gpio_inst_GPIO54),
       .sig_hps_io_usb1_inst_DIR(hps_io_usb1_inst_DIR),
-      .sig_hps_io_gpio_inst_GPIO53(hps_io_gpio_inst_GPIO53),
       .sig_hps_io_usb1_inst_STP(hps_io_usb1_inst_STP),
       .sig_hps_io_spim1_inst_MOSI(hps_io_spim1_inst_MOSI),
       .sig_hps_io_spim1_inst_SS0(hps_io_spim1_inst_SS0),
-      .sig_hps_io_gpio_inst_GPIO09(hps_io_gpio_inst_GPIO09),
       .sig_hps_io_sdio_inst_D3(hps_io_sdio_inst_D3),
       .sig_hps_io_sdio_inst_D2(hps_io_sdio_inst_D2),
       .sig_hps_io_sdio_inst_D1(hps_io_sdio_inst_D1),
       .sig_hps_io_sdio_inst_D0(hps_io_sdio_inst_D0),
-      .sig_hps_io_gpio_inst_GPIO35(hps_io_gpio_inst_GPIO35),
       .sig_hps_io_spim1_inst_CLK(hps_io_spim1_inst_CLK),
       .sig_hps_io_sdio_inst_CMD(hps_io_sdio_inst_CMD),
-      .sig_hps_io_gpio_inst_GPIO61(hps_io_gpio_inst_GPIO61),
       .sig_hps_io_uart0_inst_TX(hps_io_uart0_inst_TX),
       .sig_hps_io_usb1_inst_D7(hps_io_usb1_inst_D7),
       .sig_hps_io_usb1_inst_D6(hps_io_usb1_inst_D6),
       .sig_hps_io_usb1_inst_D5(hps_io_usb1_inst_D5),
       .sig_hps_io_usb1_inst_D4(hps_io_usb1_inst_D4),
-      .sig_hps_io_gpio_inst_GPIO48(hps_io_gpio_inst_GPIO48),
       .sig_hps_io_usb1_inst_D3(hps_io_usb1_inst_D3),
       .sig_hps_io_usb1_inst_NXT(hps_io_usb1_inst_NXT),
       .sig_hps_io_usb1_inst_D2(hps_io_usb1_inst_D2),
