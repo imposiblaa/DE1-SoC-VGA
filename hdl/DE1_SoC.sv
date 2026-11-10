@@ -42,9 +42,58 @@ module DE1_SoC (
 	input logic HPS_UART_RX,
 	output logic HPS_UART_TX
 );
-	
-	logic dig0, dig1;
-	
+	logic sdram0_clock_clk;          
+	logic sdram0_data_address;       
+	logic sdram0_data_burstcount;    
+	logic sdram0_data_waitrequest;   
+	logic sdram0_data_writedata;     
+	logic sdram0_data_byteenable;    
+	logic sdram0_data_write;         
+	logic sdram1_clock_clk;          
+	logic sdram1_data_address;       
+	logic sdram1_data_burstcount;    
+	logic sdram1_data_waitrequest;   
+	logic sdram1_data_readdata;      
+	logic sdram1_data_readdatavalid; 
+	logic sdram1_data_read;          
+	logic axi_clock_clk;          
+	logic axi_master_awid;        
+	logic axi_master_awaddr;      
+	logic axi_master_awlen;       
+	logic axi_master_awsize;      
+	logic axi_master_awburst;     
+	logic axi_master_awlock;      
+	logic axi_master_awcache;     
+	logic axi_master_awprot;      
+	logic axi_master_awvalid;     
+	logic axi_master_awready;     
+	logic axi_master_wid;         
+	logic axi_master_wdata;       
+	logic axi_master_wstrb;       
+	logic axi_master_wlast;       
+	logic axi_master_wvalid;      
+	logic axi_master_wready;      
+	logic axi_master_bid;         
+	logic axi_master_bresp;       
+	logic axi_master_bvalid;      
+	logic axi_master_bready;      
+	logic axi_master_arid;        
+	logic axi_master_araddr;      
+	logic axi_master_arlen;       
+	logic axi_master_arsize;      
+	logic axi_master_arburst;     
+	logic axi_master_arlock;      
+	logic axi_master_arcache;     
+	logic axi_master_arprot;      
+	logic axi_master_arvalid;     
+	logic axi_master_arready;     
+	logic axi_master_rid;         
+	logic axi_master_rdata;       
+	logic axi_master_rresp;       
+	logic axi_master_rlast;       
+	logic axi_master_rvalid;      
+	logic axi_master_rready;      
+	logic hps_reset;
 	// Default values, turns off the HEX displays
 	assign HEX0 = 7'b1111111;
 	assign HEX1 = 7'b1111111;
@@ -52,6 +101,101 @@ module DE1_SoC (
 	assign HEX3 = 7'b1111111;
 	assign HEX4 = 7'b1111111;
 	assign HEX5 = 7'b1111111;
+
+	soc_system hps (
+		.hps_0_f2h_sdram0_clock_clk(sdram0_clock_clk),	
+		.hps_0_f2h_sdram0_data_address(sdram0_data_address),
+		.hps_0_f2h_sdram0_data_burstcount(sdram0_data_burstcount),
+		.hps_0_f2h_sdram0_data_waitrequest(sdram0_data_waitrequest),
+		.hps_0_f2h_sdram0_data_writedata(sdram0_data_writedata),
+		.hps_0_f2h_sdram0_data_byteenable(sdram0_data_byteenable),
+		.hps_0_f2h_sdram0_data_write(sdram0_data_write),
+		.hps_0_f2h_sdram1_clock_clk(sdram1_clock_clk),
+		.hps_0_f2h_sdram1_data_address(sdram1_data_address),
+		.hps_0_f2h_sdram1_data_burstcount(sdram1_data_burstcount),
+		.hps_0_f2h_sdram1_data_waitrequest(sdram1_data_waitrequest),
+		.hps_0_f2h_sdram1_data_readdata(sdram1_data_readdata),
+		.hps_0_f2h_sdram1_data_readdatavalid(sdram1_data_readdatavalid),
+		.hps_0_f2h_sdram1_data_read(sdram1_data_read),
+		.hps_0_h2f_lw_axi_clock_clk(axi_clock_clk),
+		.hps_0_h2f_lw_axi_master_awid(axi_master_awid),
+		.hps_0_h2f_lw_axi_master_awaddr(axi_master_awaddr),
+		.hps_0_h2f_lw_axi_master_awlen(axi_master_awlen),
+		.hps_0_h2f_lw_axi_master_awsize(axi_master_awsize),
+		.hps_0_h2f_lw_axi_master_awburst(axi_master_awburst),
+		.hps_0_h2f_lw_axi_master_awlock(axi_master_awlock),
+		.hps_0_h2f_lw_axi_master_awcache(axi_master_awcache),
+		.hps_0_h2f_lw_axi_master_awprot(axi_master_awprot),
+		.hps_0_h2f_lw_axi_master_awvalid(axi_master_awvalid),
+		.hps_0_h2f_lw_axi_master_awready(axi_master_awready),
+		.hps_0_h2f_lw_axi_master_wid(axi_master_wid),
+		.hps_0_h2f_lw_axi_master_wdata(axi_master_wdata),
+		.hps_0_h2f_lw_axi_master_wstrb(axi_master_wstrb),
+		.hps_0_h2f_lw_axi_master_wlast(axi_master_wlast),
+		.hps_0_h2f_lw_axi_master_wvalid(axi_master_wvalid),
+		.hps_0_h2f_lw_axi_master_wready(axi_master_wready),
+		.hps_0_h2f_lw_axi_master_bid(axi_master_bid),
+		.hps_0_h2f_lw_axi_master_bresp(axi_master_bresp),
+		.hps_0_h2f_lw_axi_master_bvalid(axi_master_bvalid),
+		.hps_0_h2f_lw_axi_master_bready(axi_master_bready),
+		.hps_0_h2f_lw_axi_master_arid(axi_master_arid),
+		.hps_0_h2f_lw_axi_master_araddr(axi_master_araddr),
+		.hps_0_h2f_lw_axi_master_arlen(axi_master_arlen),
+		.hps_0_h2f_lw_axi_master_arsize(axi_master_arsize),
+		.hps_0_h2f_lw_axi_master_arburst(axi_master_arburst),
+		.hps_0_h2f_lw_axi_master_arlock(axi_master_arlock),
+		.hps_0_h2f_lw_axi_master_arcache(axi_master_arcache),
+		.hps_0_h2f_lw_axi_master_arprot(axi_master_arprot),
+		.hps_0_h2f_lw_axi_master_arvalid(axi_master_arvalid),
+		.hps_0_h2f_lw_axi_master_arready(axi_master_arready),
+		.hps_0_h2f_lw_axi_master_rid(axi_master_rid),
+		.hps_0_h2f_lw_axi_master_rdata(axi_master_rdata),
+		.hps_0_h2f_lw_axi_master_rresp(axi_master_rresp),
+		.hps_0_h2f_lw_axi_master_rlast(axi_master_rlast),
+		.hps_0_h2f_lw_axi_master_rvalid(axi_master_rvalid),
+		.hps_0_h2f_lw_axi_master_rready(axi_master_rready),
+		.hps_0_h2f_reset_reset_n(reset_reset_n),
+		.hps_0_hps_io_hps_io_sdio_inst_CMD(HPS_SD_CMD),   
+		.hps_0_hps_io_hps_io_sdio_inst_D0(HPS_SD_DATA[0]),    
+		.hps_0_hps_io_hps_io_sdio_inst_D1(HPS_SD_DATA[1]),    
+		.hps_0_hps_io_hps_io_sdio_inst_CLK(HPS_SD_CLK),   
+		.hps_0_hps_io_hps_io_sdio_inst_D2(HPS_SD_DATA[2]),    
+		.hps_0_hps_io_hps_io_sdio_inst_D3(HPS_SD_DATA[3]),    
+		.hps_0_hps_io_hps_io_usb1_inst_D0(HPS_USB_DATA[0]),    
+		.hps_0_hps_io_hps_io_usb1_inst_D1(HPS_USB_DATA[1]), 
+		.hps_0_hps_io_hps_io_usb1_inst_D2(HPS_USB_DATA[2]), 
+		.hps_0_hps_io_hps_io_usb1_inst_D3(HPS_USB_DATA[3]), 
+		.hps_0_hps_io_hps_io_usb1_inst_D4(HPS_USB_DATA[4]), 
+		.hps_0_hps_io_hps_io_usb1_inst_D5(HPS_USB_DATA[5]), 
+		.hps_0_hps_io_hps_io_usb1_inst_D6(HPS_USB_DATA[6]), 
+		.hps_0_hps_io_hps_io_usb1_inst_D7(HPS_USB_DATA[7]), 
+		.hps_0_hps_io_hps_io_usb1_inst_CLK(HPS_USB_CLKOUT), 
+		.hps_0_hps_io_hps_io_usb1_inst_STP(HPS_USB_STP), 
+		.hps_0_hps_io_hps_io_usb1_inst_DIR(HPS_USB_DIR), 
+		.hps_0_hps_io_hps_io_usb1_inst_NXT(HPS_USB_NXT), 
+		.hps_0_hps_io_hps_io_spim1_inst_CLK(HPS_SPIM_CLK),
+		.hps_0_hps_io_hps_io_spim1_inst_MOSI(HPS_SPIM_MOSI), 
+		.hps_0_hps_io_hps_io_spim1_inst_MISO(HPS_SPIM_MISO), 
+		.hps_0_hps_io_hps_io_spim1_inst_SS0(HPS_SPIM_SS),  
+		.hps_0_hps_io_hps_io_uart0_inst_RX(HPS_UART_RX),
+		.hps_0_hps_io_hps_io_uart0_inst_TX(HPS_UART_TX), 
+		.memory_mem_a(HPS_DDR3_ADDR),                        
+		.memory_mem_ba(HPS_DDR3_BA),              
+		.memory_mem_ck(HPS_DDR3_CK_P),               
+		.memory_mem_ck_n(HPS_DDR3_CK_N),             
+		.memory_mem_cke(HPS_DDR3_CKE),           
+		.memory_mem_cs_n(HPS_DDR3_CS_N),             
+		.memory_mem_ras_n(HPS_DDR3_RAS_N),           
+		.memory_mem_cas_n(HPS_DDR3_CAS_N),         
+		.memory_mem_we_n(HPS_DDR3_WE_N),         
+		.memory_mem_reset_n(HPS_DDR3_RESET_N),           
+		.memory_mem_dq(HPS_DDR3_DQ),     
+		.memory_mem_dqs(HPS_DDR3_DQS_P),               
+		.memory_mem_dqs_n(HPS_DDR3_DQS_N),           
+		.memory_mem_odt(HPS_DDR3_ODT),         
+		.memory_mem_dm(HPS_DDR3_DM),             
+		.memory_oct_rzqin(HPS_DDR3_RZQ)
+	);
 
 	VGA_Controller vga_driv (.clk_50(CLOCK_50), .reset(SW[0]), .VGA_R, .VGA_G, .VGA_B, .VGA_CLK, .VGA_SYNC_N, .VGA_BLANK_N, .VGA_VS, .VGA_HS);
 endmodule
