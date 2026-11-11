@@ -1,30 +1,29 @@
 # Set target module
+
 if {$argc > 0} {
     set module $1
 } else {
     set module DE1_SoC
 }
 
-# Create work library
-vlib work
+set TOP_LEVEL_NAME ${module}_testbench
+set USER_DEFINED_ELAB_OPTIONS "-voptargs=+acc"
+
+set QSYS_SIMDIR ../ip/soc_system/simulation/
+source $QSYS_SIMDIR/mentor/msim_setup.tcl
+
+dev_com;
+com;
 
 # Compile Verilog
 #     We can include all SystemVerilog files in the current folder using the
 #     following line:
 vlog "../hdl/*.sv"
 vlog "../ip/*.v"
-vlog "../ip/soc_system/simulation/soc_system.v"
 vlog "./stubs/*.v"
 
-#     This uses the asterisk (*) to match all files ending in ".sv" at once.
-#     NOTE: If you have incomplete files in the current folder, they will be
-#     picked up, and will probably fail to compile. Delete any old/unused
-#     files, or include only the specific files you need.
+elab
 
-# Call vsim to invoke simulator
-#     Make sure the last item on the line is the name of the testbench module
-#     you want to execute.
-vsim -voptargs="+acc" -t 1ps -lib work ${module}_testbench
 
 # Source the wave do file
 #     This should be the file that sets up the signal window for the module you

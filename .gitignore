@@ -4,6 +4,7 @@ work/
 quartus/db/
 quartus/incremental_db/
 quartus/output_files/
+simulation/libraries
 *.qws
 *.rpt
 *.summary
