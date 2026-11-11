@@ -120,8 +120,4 @@ set_global_assignment -library "lib_soc_system" -name MISC_FILE [file join $::qu
 set_global_assignment -library "lib_soc_system" -name MISC_FILE [file join $::quartus(sip_path) "submodules/seq_lib/alt_mem_ddrx_buffer.v"]
 set_global_assignment -library "lib_soc_system" -name MISC_FILE [file join $::quartus(sip_path) "submodules/seq_lib/alt_mem_ddrx_fifo.v"]
 set_global_assignment -library "lib_soc_system" -name MISC_FILE [file join $::quartus(sip_path) "submodules/seq_lib/hmctl_synchronizer.v"]
-set_global_assignment -library "lib_soc_system" -name MISC_FILE [file join $::quartus(sip_path) "submodules/questa_mvc_svapi.svh"]
-set_global_assignment -library "lib_soc_system" -name MISC_FILE [file join $::quartus(sip_path) "submodules/mgc_common_axi.sv"]
-set_global_assignment -library "lib_soc_system" -name MISC_FILE [file join $::quartus(sip_path) "submodules/mgc_axi_master.sv"]
-set_global_assignment -library "lib_soc_system" -name MISC_FILE [file join $::quartus(sip_path) "submodules/mgc_axi_slave.sv"]
 set_global_assignment -library "lib_soc_system" -name MISC_FILE [file join $::quartus(sip_path) "submodules/soc_system_hps_0_fpga_interfaces.sv"]

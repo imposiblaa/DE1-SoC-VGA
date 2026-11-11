@@ -17,18 +17,18 @@ module DE1_SoC (
 	output logic 		HPS_DDR3_CAS_N,
 	output logic 		HPS_DDR3_WE_N,
 	output logic 		HPS_DDR3_RESET_N,
-	inout  logic [31:0] HPS_DDR3_DQ,
-	inout  logic [3:0] 	HPS_DDR3_DQS_P,
-	inout  logic [3:0] 	HPS_DDR3_DQS_N,
+	inout  wire  [31:0] HPS_DDR3_DQ,
+	inout  wire  [3:0] 	HPS_DDR3_DQS_P,
+	inout  wire  [3:0] 	HPS_DDR3_DQS_N,
 	output logic 		HPS_DDR3_ODT,
 	output logic [3:0] 	HPS_DDR3_DM,
 	input  logic 		HPS_DDR3_RZQ,
 
-	inout  logic 		HPS_SD_CMD,
-	inout  logic [3:0] 	HPS_SD_DATA,
+	inout  wire  		HPS_SD_CMD,
+	inout  wire  [3:0] 	HPS_SD_DATA,
 	output logic 		HPS_SD_CLK,
 
-	inout  logic [7:0] 	HPS_USB_DATA,
+	inout  wire  [7:0] 	HPS_USB_DATA,
 	input  logic 		HPS_USB_CLKOUT,
 	output logic 		HPS_USB_STP,
 	input  logic 		HPS_USB_DIR,
@@ -58,43 +58,6 @@ module DE1_SoC (
 	logic [127:0] 	sdram1_data_readdata; 
 	logic 			sdram1_data_readdatavalid; 
 	logic 			sdram1_data_read; 
-	logic 			axi_clock_clk; 
-	logic [11:0] 	axi_master_awid; 
-	logic [20:0] 	axi_master_awaddr; 
-	logic [3:0] 	axi_master_awlen; 
-	logic [2:0] 	axi_master_awsize; 
-	logic [1:0] 	axi_master_awburst; 
-	logic [1:0] 	axi_master_awlock; 
-	logic [3:0] 	axi_master_awcache; 
-	logic [2:0] 	axi_master_awprot; 
-	logic 			axi_master_awvalid; 
-	logic 			axi_master_awready; 
-	logic [11:0] 	axi_master_wid; 
-	logic [31:0] 	axi_master_wdata; 
-	logic [3:0] 	axi_master_wstrb; 
-	logic 			axi_master_wlast; 
-	logic 			axi_master_wvalid; 
-	logic 			axi_master_wready; 
-	logic [11:0] 	axi_master_bid; 
-	logic [1:0] 	axi_master_bresp; 
-	logic 			axi_master_bvalid; 
-	logic 			axi_master_bready; 
-	logic [11:0] 	axi_master_arid; 
-	logic [20:0] 	axi_master_araddr; 
-	logic [3:0] 	axi_master_arlen; 
-	logic [2:0] 	axi_master_arsize; 
-	logic [1:0] 	axi_master_arburst; 
-	logic [1:0] 	axi_master_arlock; 
-	logic [3:0] 	axi_master_arcache; 
-	logic [2:0] 	axi_master_arprot; 
-	logic 			axi_master_arvalid; 
-	logic 			axi_master_arready; 
-	logic [11:0] 	axi_master_rid; 
-	logic [31:0] 	axi_master_rdata; 
-	logic [1:0] 	axi_master_rresp; 
-	logic 			axi_master_rlast; 
-	logic 			axi_master_rvalid; 
-	logic 			axi_master_rready; 
 	logic 			hps_reset;
 	// Default values, turns off the HEX displays
 	assign HEX0 = 7'b1111111;
@@ -119,43 +82,6 @@ module DE1_SoC (
 		.hps_0_f2h_sdram1_data_readdata		(sdram1_data_readdata),
 		.hps_0_f2h_sdram1_data_readdatavalid(sdram1_data_readdatavalid),
 		.hps_0_f2h_sdram1_data_read			(sdram1_data_read),
-		.hps_0_h2f_lw_axi_clock_clk			(axi_clock_clk),
-		.hps_0_h2f_lw_axi_master_awid		(axi_master_awid),
-		.hps_0_h2f_lw_axi_master_awaddr		(axi_master_awaddr),
-		.hps_0_h2f_lw_axi_master_awlen		(axi_master_awlen),
-		.hps_0_h2f_lw_axi_master_awsize		(axi_master_awsize),
-		.hps_0_h2f_lw_axi_master_awburst	(axi_master_awburst),
-		.hps_0_h2f_lw_axi_master_awlock		(axi_master_awlock),
-		.hps_0_h2f_lw_axi_master_awcache	(axi_master_awcache),
-		.hps_0_h2f_lw_axi_master_awprot		(axi_master_awprot),
-		.hps_0_h2f_lw_axi_master_awvalid	(axi_master_awvalid),
-		.hps_0_h2f_lw_axi_master_awready	(axi_master_awready),
-		.hps_0_h2f_lw_axi_master_wid		(axi_master_wid),
-		.hps_0_h2f_lw_axi_master_wdata		(axi_master_wdata),
-		.hps_0_h2f_lw_axi_master_wstrb		(axi_master_wstrb),
-		.hps_0_h2f_lw_axi_master_wlast		(axi_master_wlast),
-		.hps_0_h2f_lw_axi_master_wvalid		(axi_master_wvalid),
-		.hps_0_h2f_lw_axi_master_wready		(axi_master_wready),
-		.hps_0_h2f_lw_axi_master_bid		(axi_master_bid),
-		.hps_0_h2f_lw_axi_master_bresp		(axi_master_bresp),
-		.hps_0_h2f_lw_axi_master_bvalid		(axi_master_bvalid),
-		.hps_0_h2f_lw_axi_master_bready		(axi_master_bready),
-		.hps_0_h2f_lw_axi_master_arid		(axi_master_arid),
-		.hps_0_h2f_lw_axi_master_araddr		(axi_master_araddr),
-		.hps_0_h2f_lw_axi_master_arlen		(axi_master_arlen),
-		.hps_0_h2f_lw_axi_master_arsize		(axi_master_arsize),
-		.hps_0_h2f_lw_axi_master_arburst	(axi_master_arburst),
-		.hps_0_h2f_lw_axi_master_arlock		(axi_master_arlock),
-		.hps_0_h2f_lw_axi_master_arcache	(axi_master_arcache),
-		.hps_0_h2f_lw_axi_master_arprot		(axi_master_arprot),
-		.hps_0_h2f_lw_axi_master_arvalid	(axi_master_arvalid),
-		.hps_0_h2f_lw_axi_master_arready	(axi_master_arready),
-		.hps_0_h2f_lw_axi_master_rid		(axi_master_rid),
-		.hps_0_h2f_lw_axi_master_rdata		(axi_master_rdata),
-		.hps_0_h2f_lw_axi_master_rresp		(axi_master_rresp),
-		.hps_0_h2f_lw_axi_master_rlast		(axi_master_rlast),
-		.hps_0_h2f_lw_axi_master_rvalid		(axi_master_rvalid),
-		.hps_0_h2f_lw_axi_master_rready		(axi_master_rready),
 		.hps_0_h2f_reset_reset_n			(reset_reset_n),
 		.hps_0_hps_io_hps_io_sdio_inst_CMD	(HPS_SD_CMD),   
 		.hps_0_hps_io_hps_io_sdio_inst_D0	(HPS_SD_DATA[0]),    

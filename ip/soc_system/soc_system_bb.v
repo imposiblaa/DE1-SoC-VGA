@@ -14,43 +14,6 @@ module soc_system (
 	hps_0_f2h_sdram1_data_readdata,
 	hps_0_f2h_sdram1_data_readdatavalid,
 	hps_0_f2h_sdram1_data_read,
-	hps_0_h2f_lw_axi_clock_clk,
-	hps_0_h2f_lw_axi_master_awid,
-	hps_0_h2f_lw_axi_master_awaddr,
-	hps_0_h2f_lw_axi_master_awlen,
-	hps_0_h2f_lw_axi_master_awsize,
-	hps_0_h2f_lw_axi_master_awburst,
-	hps_0_h2f_lw_axi_master_awlock,
-	hps_0_h2f_lw_axi_master_awcache,
-	hps_0_h2f_lw_axi_master_awprot,
-	hps_0_h2f_lw_axi_master_awvalid,
-	hps_0_h2f_lw_axi_master_awready,
-	hps_0_h2f_lw_axi_master_wid,
-	hps_0_h2f_lw_axi_master_wdata,
-	hps_0_h2f_lw_axi_master_wstrb,
-	hps_0_h2f_lw_axi_master_wlast,
-	hps_0_h2f_lw_axi_master_wvalid,
-	hps_0_h2f_lw_axi_master_wready,
-	hps_0_h2f_lw_axi_master_bid,
-	hps_0_h2f_lw_axi_master_bresp,
-	hps_0_h2f_lw_axi_master_bvalid,
-	hps_0_h2f_lw_axi_master_bready,
-	hps_0_h2f_lw_axi_master_arid,
-	hps_0_h2f_lw_axi_master_araddr,
-	hps_0_h2f_lw_axi_master_arlen,
-	hps_0_h2f_lw_axi_master_arsize,
-	hps_0_h2f_lw_axi_master_arburst,
-	hps_0_h2f_lw_axi_master_arlock,
-	hps_0_h2f_lw_axi_master_arcache,
-	hps_0_h2f_lw_axi_master_arprot,
-	hps_0_h2f_lw_axi_master_arvalid,
-	hps_0_h2f_lw_axi_master_arready,
-	hps_0_h2f_lw_axi_master_rid,
-	hps_0_h2f_lw_axi_master_rdata,
-	hps_0_h2f_lw_axi_master_rresp,
-	hps_0_h2f_lw_axi_master_rlast,
-	hps_0_h2f_lw_axi_master_rvalid,
-	hps_0_h2f_lw_axi_master_rready,
 	hps_0_h2f_reset_reset_n,
 	hps_0_hps_io_hps_io_sdio_inst_CMD,
 	hps_0_hps_io_hps_io_sdio_inst_D0,
@@ -107,43 +70,6 @@ module soc_system (
 	output	[127:0]	hps_0_f2h_sdram1_data_readdata;
 	output		hps_0_f2h_sdram1_data_readdatavalid;
 	input		hps_0_f2h_sdram1_data_read;
-	input		hps_0_h2f_lw_axi_clock_clk;
-	output	[11:0]	hps_0_h2f_lw_axi_master_awid;
-	output	[20:0]	hps_0_h2f_lw_axi_master_awaddr;
-	output	[3:0]	hps_0_h2f_lw_axi_master_awlen;
-	output	[2:0]	hps_0_h2f_lw_axi_master_awsize;
-	output	[1:0]	hps_0_h2f_lw_axi_master_awburst;
-	output	[1:0]	hps_0_h2f_lw_axi_master_awlock;
-	output	[3:0]	hps_0_h2f_lw_axi_master_awcache;
-	output	[2:0]	hps_0_h2f_lw_axi_master_awprot;
-	output		hps_0_h2f_lw_axi_master_awvalid;
-	input		hps_0_h2f_lw_axi_master_awready;
-	output	[11:0]	hps_0_h2f_lw_axi_master_wid;
-	output	[31:0]	hps_0_h2f_lw_axi_master_wdata;
-	output	[3:0]	hps_0_h2f_lw_axi_master_wstrb;
-	output		hps_0_h2f_lw_axi_master_wlast;
-	output		hps_0_h2f_lw_axi_master_wvalid;
-	input		hps_0_h2f_lw_axi_master_wready;
-	input	[11:0]	hps_0_h2f_lw_axi_master_bid;
-	input	[1:0]	hps_0_h2f_lw_axi_master_bresp;
-	input		hps_0_h2f_lw_axi_master_bvalid;
-	output		hps_0_h2f_lw_axi_master_bready;
-	output	[11:0]	hps_0_h2f_lw_axi_master_arid;
-	output	[20:0]	hps_0_h2f_lw_axi_master_araddr;
-	output	[3:0]	hps_0_h2f_lw_axi_master_arlen;
-	output	[2:0]	hps_0_h2f_lw_axi_master_arsize;
-	output	[1:0]	hps_0_h2f_lw_axi_master_arburst;
-	output	[1:0]	hps_0_h2f_lw_axi_master_arlock;
-	output	[3:0]	hps_0_h2f_lw_axi_master_arcache;
-	output	[2:0]	hps_0_h2f_lw_axi_master_arprot;
-	output		hps_0_h2f_lw_axi_master_arvalid;
-	input		hps_0_h2f_lw_axi_master_arready;
-	input	[11:0]	hps_0_h2f_lw_axi_master_rid;
-	input	[31:0]	hps_0_h2f_lw_axi_master_rdata;
-	input	[1:0]	hps_0_h2f_lw_axi_master_rresp;
-	input		hps_0_h2f_lw_axi_master_rlast;
-	input		hps_0_h2f_lw_axi_master_rvalid;
-	output		hps_0_h2f_lw_axi_master_rready;
 	output		hps_0_h2f_reset_reset_n;
 	inout		hps_0_hps_io_hps_io_sdio_inst_CMD;
 	inout		hps_0_hps_io_hps_io_sdio_inst_D0;

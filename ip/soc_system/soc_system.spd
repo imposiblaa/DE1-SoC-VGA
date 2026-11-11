@@ -474,22 +474,6 @@
    type="SYSTEM_VERILOG"
    library="fpga_interfaces" />
  <file
-   path="simulation/submodules/questa_mvc_svapi.svh"
-   type="SYSTEM_VERILOG"
-   library="fpga_interfaces" />
- <file
-   path="simulation/submodules/mgc_common_axi.sv"
-   type="SYSTEM_VERILOG"
-   library="fpga_interfaces" />
- <file
-   path="simulation/submodules/mgc_axi_master.sv"
-   type="SYSTEM_VERILOG"
-   library="fpga_interfaces" />
- <file
-   path="simulation/submodules/mgc_axi_slave.sv"
-   type="SYSTEM_VERILOG"
-   library="fpga_interfaces" />
- <file
    path="simulation/submodules/altera_avalon_interrupt_sink.sv"
    type="SYSTEM_VERILOG"
    library="fpga_interfaces" />

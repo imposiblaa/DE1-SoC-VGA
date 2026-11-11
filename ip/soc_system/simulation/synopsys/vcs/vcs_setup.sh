@@ -12,7 +12,7 @@
 # or its authorized distributors. Please refer to the applicable 
 # agreement for further details.
 
-# ACDS 17.0 595 win32 2026.11.10.12:52:05
+# ACDS 17.0 595 win32 2026.11.10.19:54:19
 
 # ----------------------------------------
 # vcs - auto-generated simulation script
@@ -94,7 +94,7 @@
 # within the Quartus project, and generate a unified
 # script which supports all the Altera IP within the design.
 # ----------------------------------------
-# ACDS 17.0 595 win32 2026.11.10.12:52:05
+# ACDS 17.0 595 win32 2026.11.10.19:54:19
 # ----------------------------------------
 # initialize variables
 TOP_LEVEL_NAME="soc_system"
@@ -253,10 +253,6 @@ vcs -lca -timescale=1ps/1ps -sverilog +verilog2001ext+.v -ntb_opts dtm $ELAB_OPT
   $QSYS_SIMDIR/submodules/seq_lib/alt_mem_ddrx_buffer.v \
   $QSYS_SIMDIR/submodules/seq_lib/alt_mem_ddrx_fifo.v \
   $QSYS_SIMDIR/submodules/seq_lib/hmctl_synchronizer.v \
-  $QSYS_SIMDIR/submodules/questa_mvc_svapi.svh \
-  $QSYS_SIMDIR/submodules/mgc_common_axi.sv \
-  $QSYS_SIMDIR/submodules/mgc_axi_master.sv \
-  $QSYS_SIMDIR/submodules/mgc_axi_slave.sv \
   $QSYS_SIMDIR/submodules/soc_system_hps_0_fpga_interfaces.sv \
   $QSYS_SIMDIR/submodules/soc_system_hps_0.v \
   $QSYS_SIMDIR/soc_system.v \

@@ -12,7 +12,7 @@
 # or its authorized distributors. Please refer to the applicable 
 # agreement for further details.
 
-# ACDS 17.0 595 win32 2026.11.10.12:52:05
+# ACDS 17.0 595 win32 2026.11.10.19:54:19
 
 # ----------------------------------------
 # ncsim - auto-generated simulation script
@@ -101,7 +101,7 @@
 # within the Quartus project, and generate a unified
 # script which supports all the Altera IP within the design.
 # ----------------------------------------
-# ACDS 17.0 595 win32 2026.11.10.12:52:05
+# ACDS 17.0 595 win32 2026.11.10.19:54:19
 # ----------------------------------------
 # initialize variables
 TOP_LEVEL_NAME="soc_system"
@@ -291,10 +291,6 @@ if [ $SKIP_COM -eq 0 ]; then
   ncvlog $USER_DEFINED_COMPILE_OPTIONS     "$QSYS_SIMDIR/submodules/seq_lib/alt_mem_ddrx_fifo.v"                                              -work fpga_interfaces           -cdslib ./cds_libs/fpga_interfaces.cds.lib          
   ncvlog $USER_DEFINED_COMPILE_OPTIONS     "$QSYS_SIMDIR/submodules/seq_lib/hmctl_synchronizer.v"                                             -work fpga_interfaces           -cdslib ./cds_libs/fpga_interfaces.cds.lib          
   ncvlog -sv $USER_DEFINED_COMPILE_OPTIONS "$QSYS_SIMDIR/submodules/altera_avalon_mm_slave_bfm.sv"                                            -work fpga_interfaces           -cdslib ./cds_libs/fpga_interfaces.cds.lib          
-  ncvlog -sv $USER_DEFINED_COMPILE_OPTIONS "$QSYS_SIMDIR/submodules/questa_mvc_svapi.svh"                                                     -work fpga_interfaces           -cdslib ./cds_libs/fpga_interfaces.cds.lib          
-  ncvlog -sv $USER_DEFINED_COMPILE_OPTIONS "$QSYS_SIMDIR/submodules/mgc_common_axi.sv"                                                        -work fpga_interfaces           -cdslib ./cds_libs/fpga_interfaces.cds.lib          
-  ncvlog -sv $USER_DEFINED_COMPILE_OPTIONS "$QSYS_SIMDIR/submodules/mgc_axi_master.sv"                                                        -work fpga_interfaces           -cdslib ./cds_libs/fpga_interfaces.cds.lib          
-  ncvlog -sv $USER_DEFINED_COMPILE_OPTIONS "$QSYS_SIMDIR/submodules/mgc_axi_slave.sv"                                                         -work fpga_interfaces           -cdslib ./cds_libs/fpga_interfaces.cds.lib          
   ncvlog -sv $USER_DEFINED_COMPILE_OPTIONS "$QSYS_SIMDIR/submodules/altera_avalon_interrupt_sink.sv"                                          -work fpga_interfaces           -cdslib ./cds_libs/fpga_interfaces.cds.lib          
   ncvlog -sv $USER_DEFINED_COMPILE_OPTIONS "$QSYS_SIMDIR/submodules/soc_system_hps_0_fpga_interfaces.sv"                                      -work fpga_interfaces           -cdslib ./cds_libs/fpga_interfaces.cds.lib          
   ncvlog $USER_DEFINED_COMPILE_OPTIONS     "$QSYS_SIMDIR/submodules/soc_system_hps_0.v"                                                       -work hps_0                     -cdslib ./cds_libs/hps_0.cds.lib                    

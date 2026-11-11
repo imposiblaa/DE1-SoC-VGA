@@ -63,16 +63,8 @@
  <interface name="hps_0_f2h_stm_hw_events" internal="hps_0.f2h_stm_hw_events" />
  <interface name="hps_0_f2h_warm_reset_req" internal="hps_0.f2h_warm_reset_req" />
  <interface name="hps_0_h2f_cold_reset" internal="hps_0.h2f_cold_reset" />
- <interface
-   name="hps_0_h2f_lw_axi_clock"
-   internal="hps_0.h2f_lw_axi_clock"
-   type="clock"
-   dir="end" />
- <interface
-   name="hps_0_h2f_lw_axi_master"
-   internal="hps_0.h2f_lw_axi_master"
-   type="axi"
-   dir="start" />
+ <interface name="hps_0_h2f_lw_axi_clock" internal="hps_0.h2f_lw_axi_clock" />
+ <interface name="hps_0_h2f_lw_axi_master" internal="hps_0.h2f_lw_axi_master" />
  <interface
    name="hps_0_h2f_reset"
    internal="hps_0.h2f_reset"
@@ -237,7 +229,7 @@
   <parameter name="H2F_AXI_CLOCK_FREQ" value="100" />
   <parameter name="H2F_CTI_CLOCK_FREQ" value="100" />
   <parameter name="H2F_DEBUG_APB_CLOCK_FREQ" value="100" />
-  <parameter name="H2F_LW_AXI_CLOCK_FREQ" value="0" />
+  <parameter name="H2F_LW_AXI_CLOCK_FREQ" value="100" />
   <parameter name="H2F_TPIU_CLOCK_IN_FREQ" value="100" />
   <parameter name="HARD_EMIF" value="true" />
   <parameter name="HCX_COMPAT_MODE" value="false" />
@@ -260,7 +252,7 @@
   <parameter name="LOANIO_Enable">No,No,No,No,No,No,No,No,No,No,No,No,No,No,No,No,No,No,No,No,No,No,No,No,No,No,No,No,No,No,No,No,No,No,No,No,No,No,No,No,No,No,No,No,No,No,No,No,No,No,No,No,No,No,No,No,No,No,No,No,No,No,No,No,No,No,No,No,No,No,No,No,No,No,No,No,No,No,No,No,No,No,No,No,No,No,No,No,No,No,No,No,No,No,No,No,No,No,No,No</parameter>
   <parameter name="LOCAL_ID_WIDTH" value="8" />
   <parameter name="LRDIMM_EXTENDED_CONFIG">0x000000000000000000</parameter>
-  <parameter name="LWH2F_Enable" value="true" />
+  <parameter name="LWH2F_Enable" value="false" />
   <parameter name="MARGIN_VARIATION_TEST" value="false" />
   <parameter name="MAX_PENDING_RD_CMD" value="16" />
   <parameter name="MAX_PENDING_WR_CMD" value="8" />
