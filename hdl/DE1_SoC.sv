@@ -204,10 +204,86 @@ endmodule
 
 
 module DE1_SoC_testbench();
-	logic [6:0] HEX0, HEX1, HEX2, HEX3, HEX4, HEX5;
-	logic [9:0] LEDR;
-	logic [3:0] KEY;
-	logic [9:0] SW;
+	logic 			CLOCK_50;
+	logic [6:0] 	HEX0, HEX1, HEX2, HEX3, HEX4, HEX5;
+    logic [7:0] 	VGA_R, VGA_G, VGA_B;
+	logic [9:0] 	LEDR;
+    logic 			VGA_CLK, VGA_SYNC_N, VGA_BLANK_N, VGA_VS, VGA_HS;
+	logic [3:0] 	KEY;
+	logic [9:0] 	SW;
 
-	DE1_SoC dut (.HEX0, .HEX1, .HEX2, .HEX3, .HEX4, .HEX5, .KEY, .LEDR, .SW);
+	logic [14:0] 	HPS_DDR3_ADDR;
+	logic [2:0] 	HPS_DDR3_BA;
+	logic 			HPS_DDR3_CK_P;
+	logic 			HPS_DDR3_CK_N;
+	logic 			HPS_DDR3_CKE;
+	logic 			HPS_DDR3_CS_N;
+	logic 			HPS_DDR3_RAS_N;
+	logic 			HPS_DDR3_CAS_N;
+	logic 			HPS_DDR3_WE_N;
+	logic 			HPS_DDR3_RESET_N;
+	logic [31:0] 	HPS_DDR3_DQ;
+	logic [3:0] 	HPS_DDR3_DQS_P;
+	logic [3:0] 	HPS_DDR3_DQS_N;
+	logic 			HPS_DDR3_ODT;
+	logic [3:0] 	HPS_DDR3_DM;
+	logic 			HPS_DDR3_RZQ;
+
+	logic 			HPS_SD_CMD;
+	logic [3:0] 	HPS_SD_DATA;
+	logic 			HPS_SD_CLK;
+
+	logic [7:0] 	HPS_USB_DATA;
+	logic 			HPS_USB_CLKOUT;
+	logic 			HPS_USB_STP;
+	logic 			HPS_USB_DIR;
+	logic 			HPS_USB_NXT;
+
+	logic 			HPS_SPIM_CLK;
+	logic 			HPS_SPIM_MOSI;
+	logic 			HPS_SPIM_MISO;
+	logic 			HPS_SPIM_SS;
+
+	logic 			HPS_UART_RX;
+	logic 			HPS_UART_TX;
+
+	DE1_SoC dut (
+		.CLOCK_50,
+		.HEX0, .HEX1, .HEX2, .HEX3, .HEX4, .HEX5,
+		.VGA_R, .VGA_G, .VGA_B,
+		.LEDR,
+		.VGA_CLK, .VGA_SYNC_N, .VGA_BLANK_N, .VGA_VS, .VGA_HS,
+		.KEY,
+		.SW,
+		.HPS_DDR3_ADDR,
+		.HPS_DDR3_BA,
+		.HPS_DDR3_CK_P,
+		.HPS_DDR3_CK_N,
+		.HPS_DDR3_CKE,
+		.HPS_DDR3_CS_N,
+		.HPS_DDR3_RAS_N,
+		.HPS_DDR3_CAS_N,
+		.HPS_DDR3_WE_N,
+		.HPS_DDR3_RESET_N,
+		.HPS_DDR3_DQ,
+		.HPS_DDR3_DQS_P,
+		.HPS_DDR3_DQS_N,
+		.HPS_DDR3_ODT,
+		.HPS_DDR3_DM,
+		.HPS_DDR3_RZQ,
+		.HPS_SD_CMD,
+		.HPS_SD_DATA,
+		.HPS_SD_CLK,
+		.HPS_USB_DATA,
+		.HPS_USB_CLKOUT,
+		.HPS_USB_STP,
+		.HPS_USB_DIR,
+		.HPS_USB_NXT,
+		.HPS_SPIM_CLK,
+		.HPS_SPIM_MOSI,
+		.HPS_SPIM_MISO,
+		.HPS_SPIM_SS,
+		.HPS_UART_RX,
+		.HPS_UART_TX
+	);
 endmodule
