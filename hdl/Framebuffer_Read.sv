@@ -190,11 +190,11 @@ module Framebuffer_Read_testbench ();
             fbr_reset <= 1;
             ddr3_w_writedata <= {
                 8'h00,
-                8'h00, 8'h11, 8'((hc+4)*255)/1280,
-                8'h00, 8'h11, 8'((hc+3)*255)/1280,
-                8'h00, 8'h11, 8'((hc+2)*255)/1280,
-                8'h00, 8'h11, 8'((hc+1)*255)/1280,
-                8'h00, 8'h11, 8'(hc*255)/1280
+                8'h00, 8'hff, 8'(((hc+4)*255)/1280),
+                8'h00, 8'hff, 8'(((hc+3)*255)/1280),
+                8'h00, 8'hff, 8'(((hc+2)*255)/1280),
+                8'h00, 8'hff, 8'(((hc+1)*255)/1280),
+                8'h00, 8'hff, 8'((hc*255)/1280)
             };
             if (writes_left == 0) begin
                 ddr3_w_write <= 1;
@@ -206,8 +206,9 @@ module Framebuffer_Read_testbench ();
                 writes_left <= writes_left - 1;
                 hc <= hc + 5;
             end
-        end else
+        end else begin
             ddr3_w_write <= 0;
             fbr_reset <= 0;
+        end
     end
 endmodule
