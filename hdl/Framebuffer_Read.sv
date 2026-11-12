@@ -66,14 +66,14 @@ module Framebuffer_Read (
                 read_in_progress <= 1;
                 words_left <= 64;
 
-                if (last_h >= (width-64)) begin
-                    last_h <= last_h + 64 - width;
+                if (last_h >= (width-320)) begin
+                    last_h <= last_h + 320 - width;
                     if (last_v >= (height-1))
                         last_v <= 0;
                     else
                         last_v <= last_v + 1;
                 end else
-                    last_h <= last_h + 64;
+                    last_h <= last_h + 320;
 
                 queue_read <= 0;
             end
@@ -188,16 +188,23 @@ module Framebuffer_Read_testbench ();
     always_ff @(posedge clk_74) begin
         if (hc < 1280) begin
             fbr_reset <= 1;
-            ddr3_w_writedata <= (hc*255)/1280;
+            ddr3_w_writedata <= {
+                8'h00,
+                8'h00, 8'h11, 8'((hc+4)*255)/1280,
+                8'h00, 8'h11, 8'((hc+3)*255)/1280,
+                8'h00, 8'h11, 8'((hc+2)*255)/1280,
+                8'h00, 8'h11, 8'((hc+1)*255)/1280,
+                8'h00, 8'h11, 8'(hc*255)/1280
+            };
             if (writes_left == 0) begin
                 ddr3_w_write <= 1;
-                ddr3_w_address <= hc;
+                ddr3_w_address <= hc/5;
                 ddr3_w_burstcount <= 64;
                 ddr3_w_byteenable <= '1;
                 writes_left <= 63;
             end else if (~ddr3_w_waitrequest) begin
                 writes_left <= writes_left - 1;
-                hc <= hc + 1;
+                hc <= hc + 5;
             end
         end else
             ddr3_w_write <= 0;
