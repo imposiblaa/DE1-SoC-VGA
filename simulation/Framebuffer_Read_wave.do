@@ -1,23 +1,43 @@
 onerror {resume}
 quietly WaveActivateNextPane {} 0
 add wave -noupdate /Framebuffer_Read_testbench/clk_74
-add wave -noupdate /Framebuffer_Read_testbench/ddr3_w_address
-add wave -noupdate /Framebuffer_Read_testbench/ddr3_w_burstcount
-add wave -noupdate /Framebuffer_Read_testbench/ddr3_w_waitrequest
-add wave -noupdate /Framebuffer_Read_testbench/ddr3_w_writedata
-add wave -noupdate /Framebuffer_Read_testbench/ddr3_w_write
-add wave -noupdate /Framebuffer_Read_testbench/ddr3_w_byteenable
-add wave -noupdate /Framebuffer_Read_testbench/word_count
-add wave -noupdate -divider Read
-add wave -noupdate /Framebuffer_Read_testbench/read
-add wave -noupdate /Framebuffer_Read_testbench/ddr3_address
-add wave -noupdate /Framebuffer_Read_testbench/ddr3_burstCount
-add wave -noupdate /Framebuffer_Read_testbench/ddr3_waitrequest
-add wave -noupdate /Framebuffer_Read_testbench/ddr3_readdata
-add wave -noupdate /Framebuffer_Read_testbench/ddr3_readdatavalid
+add wave -noupdate /Framebuffer_Read_testbench/reset
+add wave -noupdate /Framebuffer_Read_testbench/fbr_reset
+add wave -noupdate -divider Pixel
+add wave -noupdate -radix unsigned /Framebuffer_Read_testbench/px_r
+add wave -noupdate -radix unsigned /Framebuffer_Read_testbench/px_g
+add wave -noupdate -radix unsigned /Framebuffer_Read_testbench/px_b
+add wave -noupdate -divider {Book Keeping}
+add wave -noupdate -radix unsigned /Framebuffer_Read_testbench/hcount
+add wave -noupdate -radix unsigned /Framebuffer_Read_testbench/vcount
+add wave -noupdate -radix unsigned /Framebuffer_Read_testbench/fbr/last_h
+add wave -noupdate -radix unsigned /Framebuffer_Read_testbench/fbr/last_v
+add wave -noupdate /Framebuffer_Read_testbench/fbr/queue_read
+add wave -noupdate /Framebuffer_Read_testbench/fbr/read_in_progress
+add wave -noupdate -radix unsigned /Framebuffer_Read_testbench/fbr/words_left
+add wave -noupdate -radix unsigned /Framebuffer_Read_testbench/fbr/px_index
+add wave -noupdate -divider FIFO
+add wave -noupdate /Framebuffer_Read_testbench/fbr/fifo_rdreq
+add wave -noupdate -radix hexadecimal /Framebuffer_Read_testbench/fbr/fifo_outdata
+add wave -noupdate -radix unsigned /Framebuffer_Read_testbench/fbr/fifo_usedw
+add wave -noupdate -divider ddr3
+add wave -noupdate -radix hexadecimal /Framebuffer_Read_testbench/ddr3_address
 add wave -noupdate /Framebuffer_Read_testbench/ddr3_read
+add wave -noupdate -radix hexadecimal /Framebuffer_Read_testbench/ddr3_readdata
+add wave -noupdate /Framebuffer_Read_testbench/ddr3_readdatavalid
+add wave -noupdate /Framebuffer_Read_testbench/ddr3_waitrequest
+add wave -noupdate -radix unsigned /Framebuffer_Read_testbench/ddr3_burstcount
+add wave -noupdate -divider {ddr3 Write}
+add wave -noupdate -radix unsigned /Framebuffer_Read_testbench/writes_left
+add wave -noupdate -radix unsigned /Framebuffer_Read_testbench/hc
+add wave -noupdate -radix hexadecimal /Framebuffer_Read_testbench/ddr3_w_address
+add wave -noupdate -radix unsigned /Framebuffer_Read_testbench/ddr3_w_burstcount
+add wave -noupdate /Framebuffer_Read_testbench/ddr3_w_waitrequest
+add wave -noupdate -radix hexadecimal /Framebuffer_Read_testbench/ddr3_w_writedata
+add wave -noupdate -radix hexadecimal /Framebuffer_Read_testbench/ddr3_w_byteenable
+add wave -noupdate /Framebuffer_Read_testbench/ddr3_w_write
 TreeUpdate [SetDefaultTree]
-WaveRestoreCursors {{Cursor 1} {26475285 ps} 0}
+WaveRestoreCursors {{Cursor 1} {7011135 ps} 0}
 quietly wave cursor active 1
 configure wave -namecolwidth 150
 configure wave -valuecolwidth 100
@@ -33,4 +53,4 @@ configure wave -griddelta 40
 configure wave -timeline 0
 configure wave -timelineunits ps
 update
-WaveRestoreZoom {0 ps} {761173 ps}
+WaveRestoreZoom {0 ps} {59036250 ps}

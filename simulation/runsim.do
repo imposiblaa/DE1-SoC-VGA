@@ -19,7 +19,7 @@ com;
 #     We can include all SystemVerilog files in the current folder using the
 #     following line:
 vlog "../hdl/*.sv"
-vlog "../ip/*.v"
+vlog "../ip/FBLINE_FIFO.v"
 vlog "./stubs/*.v"
 
 elab

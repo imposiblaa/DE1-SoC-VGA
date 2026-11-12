@@ -4,15 +4,15 @@ module VGA_Timing (clk_74, reset, hcount, vcount, VGA_CLK, VGA_SYNC_N, VGA_BLANK
     output logic VGA_CLK, VGA_SYNC_N, VGA_BLANK_N, VGA_VS, VGA_HS;
     input logic clk_74, reset;
 
+    output logic [$clog2(1650):0] hcount;
+    output logic [$clog2(750):0] vcount;
+
     assign VGA_SYNC_N = 1;
 
     logic h_active;
     logic v_active;
     logic hsync;
     logic vsync;
-
-    output logic [$clog2(1650):0] hcount;
-    output logic [$clog2(750):0] vcount;
 
     assign VGA_BLANK_N = (h_active & v_active);
 
