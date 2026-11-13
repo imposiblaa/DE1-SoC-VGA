@@ -23,20 +23,21 @@ module Framebuffer_Read (
     logic fifo_rdreq;
     logic fifo_empty;
     logic fifo_full;
+    logic fifo_sclr;
     logic [127:0] fifo_outdata;
     logic [8:0] fifo_usedw;
 
     logic [3:0] px_index;
     logic [127:0] outreg;
 
-    logic [11:0] last_h;
-    logic [10:0] last_v;
+    logic [11:0] next_h;
+    logic [10:0] next_v;
 
     logic queue_read;
     logic read_in_progress;
     logic [7:0] words_left;
 
-    FBLINE_FIFO lfifo (.clock(clk_74), .data(ddr3_readdata), .rdreq(fifo_rdreq), .wrreq(ddr3_readdatavalid),
+    FBLINE_FIFO lfifo (.clock(clk_74), .data(ddr3_readdata), .rdreq(fifo_rdreq), .sclr(fifo_sclr), .wrreq(ddr3_readdatavalid),
                        .empty(fifo_empty), .full(fifo_full), .q(fifo_outdata), .usedw(fifo_usedw));
 
 
@@ -49,8 +50,8 @@ module Framebuffer_Read (
     always_ff @(posedge clk_74) begin
         if (reset) begin
             px_index <= 0;
-            last_h <= 0;
-            last_v <= 0;
+            next_h <= 0;
+            next_v <= 0;
             queue_read <= 0;
             read_in_progress <= 0;
             words_left <= 0;
@@ -62,18 +63,18 @@ module Framebuffer_Read (
             if (queue_read) begin
                 ddr3_read <= 1;
                 ddr3_burstcount <= 64;
-                ddr3_address <= (last_v * 256) + (last_h / 5);
+                ddr3_address <= (next_v * 256) + (next_h / 5);
                 read_in_progress <= 1;
                 words_left <= 64;
 
-                if (last_h >= (width-320)) begin
-                    last_h <= last_h + 320 - width;
-                    if (last_v >= (height-1))
-                        last_v <= 0;
+                if (next_h >= (width-320)) begin
+                    next_h <= next_h + 320 - width;
+                    if (next_v >= (height-1))
+                        next_v <= 0;
                     else
-                        last_v <= last_v + 1;
+                        next_v <= next_v + 1;
                 end else
-                    last_h <= last_h + 320;
+                    next_h <= next_h + 320;
 
                 queue_read <= 0;
             end
@@ -101,6 +102,17 @@ module Framebuffer_Read (
 
 
             end
+
+            if (hcount == 1279) begin
+                fifo_sclr <= 1;
+                if (vcount < 750)
+                    next_v <= vcount + 1;
+                else
+                    next_v <= 0;
+
+                next_h <= 0;
+            end else
+                fifo_sclr <= 0;
         end
     end
 
