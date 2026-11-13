@@ -90,6 +90,7 @@ module Framebuffer_Read (
             end
 
             if (hcount < 1280 & vcount < 720) begin
+                fifo_rdreq <= 0;
                 outreg <= outreg >> 24;
                 if (px_index == 4) begin
                     px_index <= 0;
@@ -185,17 +186,18 @@ module Framebuffer_Read_testbench ();
 
     logic [11:0] hc = 0;
     logic [7:0] writes_left = 0;
+
+    assign ddr3_w_writedata = {
+        8'h00,
+        8'h00, 8'hff, 8'(((hc+4)*255)/1280),
+        8'h00, 8'hff, 8'(((hc+3)*255)/1280),
+        8'h00, 8'hff, 8'(((hc+2)*255)/1280),
+        8'h00, 8'hff, 8'(((hc+1)*255)/1280),
+        8'h00, 8'hff, 8'((hc*255)/1280)
+    };
     always_ff @(posedge clk_74) begin
         if (hc < 1280) begin
             fbr_reset <= 1;
-            ddr3_w_writedata <= {
-                8'h00,
-                8'h00, 8'hff, 8'(((hc+4)*255)/1280),
-                8'h00, 8'hff, 8'(((hc+3)*255)/1280),
-                8'h00, 8'hff, 8'(((hc+2)*255)/1280),
-                8'h00, 8'hff, 8'(((hc+1)*255)/1280),
-                8'h00, 8'hff, 8'((hc*255)/1280)
-            };
             if (writes_left == 0) begin
                 ddr3_w_write <= 1;
                 ddr3_w_address <= hc/5;
