@@ -12,6 +12,7 @@ DEVICE_FAMILY="Cyclone V"
 clock
 data
 rdreq
+sclr
 wrreq
 empty
 full

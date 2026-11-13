@@ -94973,3 +94973,5 @@ run -all
 # [39346258] [DWR=000]:  WARNING: Attempting to read from uninitialized location @ 20002ff (BRC=1/0/2f8) burst 7
 # Break key hit
 # Break at a source-protected location
+# End time: 22:38:45 on Nov 12,2026, Elapsed time: 1:55:18
+# Errors: 0, Warnings: 2836
