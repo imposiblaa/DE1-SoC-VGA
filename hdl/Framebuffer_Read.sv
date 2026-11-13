@@ -90,12 +90,13 @@ module Framebuffer_Read (
             end
 
             if (hcount < 1280 & vcount < 720) begin
-                fifo_rdreq <= 0;
                 outreg <= outreg >> 24;
-                if (px_index == 4) begin
-                    px_index <= 0;
+                fifo_rdreq <= 0;
+                px_index <= px_index - 1;
+                if (px_index == 0) begin
+                    px_index <= 4;
                     fifo_rdreq <= 1;
-                end else if (px_index == 0)
+                end else if (px_index == 4)
                     outreg <= fifo_outdata;
 
 
