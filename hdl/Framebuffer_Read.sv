@@ -198,16 +198,17 @@ module Framebuffer_Read_testbench ();
     always_ff @(posedge clk_74) begin
         if (hc < 1280) begin
             fbr_reset <= 1;
+            if (~ddr3_w_waitrequest) begin
+                writes_left <= writes_left - 1;
+                hc <= hc + 5;
+            end
             if (writes_left == 0) begin
                 ddr3_w_write <= 1;
                 ddr3_w_address <= hc/5;
                 ddr3_w_burstcount <= 64;
                 ddr3_w_byteenable <= '1;
                 writes_left <= 63;
-            end else if (~ddr3_w_waitrequest) begin
-                writes_left <= writes_left - 1;
-                hc <= hc + 5;
-            end
+            end 
         end else begin
             ddr3_w_write <= 0;
             fbr_reset <= 0;
